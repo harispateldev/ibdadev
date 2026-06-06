@@ -6,21 +6,13 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { WorksSection } from "@/components/sections/WorksSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { TechStackSection } from "@/components/sections/TechStackSection";
-import { COLOR } from "@/constants/colors";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { FooterSection } from "@/components/sections/FooterSection";
-import { ScrollScene } from "@/components/scenes/ScrollScene";
-import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 export default function Home() {
-  // Sync scroll progress with Zustand store
-  useScrollProgress();
-
   return (
-    <main className="relative min-h-screen text-white overflow-x-hidden bg-refract-bg">
-      {/* 3D Scene Background Layer */}
-      <ScrollScene />
+    <main className="relative min-h-screen text-white overflow-x-hidden bg-ibda-bg">
+      <div className="theme-grid fixed inset-0 z-0 pointer-events-none opacity-40" />
 
       {/* Hero Section */}
       <HeroSection />

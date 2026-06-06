@@ -1,99 +1,135 @@
 "use client";
 
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { COLOR } from "@/constants/colors";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const techStack = [
-  "AWS", "Vercel", "Figma", "Blender", "After Effects", "NextJS", "React", "GSAP", "Typescript", "Hotjar", "Adobe Creative Cloud", "Notion"
+const systems = [
+  {
+    label: "Plan",
+    title: "Strategy and UX",
+    description: "We map audience, offer, objections, and page logic before any visual polish begins.",
+    tools: ["Figma", "Notion", "Analytics", "Hotjar"],
+  },
+  {
+    label: "Build",
+    title: "Interface engineering",
+    description: "Sections are built as reusable product surfaces with responsive behavior and fast defaults.",
+    tools: ["Next.js", "React", "TypeScript", "Tailwind"],
+  },
+  {
+    label: "Move",
+    title: "Motion system",
+    description: "Animation is applied to guide attention: reveal, confirm, transition, and signal progress.",
+    tools: ["GSAP", "Framer Motion", "Lenis", "Reduced motion"],
+  },
+  {
+    label: "Launch",
+    title: "Release path",
+    description: "Deployment, QA, event mapping, and iteration notes are packaged before handoff.",
+    tools: ["Vercel", "Cloudflare", "SEO checks", "QA checklist"],
+  },
 ];
 
+const timeline = ["Brief", "Wire", "Design", "Build", "Motion", "QA", "Launch"];
+
 export const TechStackSection = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const marqueeRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // Background large text animation
-      gsap.from(".bg-text", {
-        scale: 0.8,
+    const ctx = gsap.context(() => {
+      gsap.from(".stack-copy", {
         opacity: 0,
-        duration: 2,
+        y: 30,
+        duration: 0.9,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          scrub: 1,
+          trigger: sectionRef.current,
+          start: "top 78%",
         },
       });
 
-      // Infinite Marquee
-      const marquee = marqueeRef.current;
-      if (!marquee) return;
-
-      const totalWidth = marquee.scrollWidth / 2;
-      gsap.to(marquee, {
-        x: -totalWidth,
-        duration: 20,
-        ease: "none",
-        repeat: -1,
+      gsap.from(".stack-system", {
+        opacity: 0,
+        y: 24,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".stack-grid",
+          start: "top 82%",
+        },
       });
-
-    }, containerRef);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="py-40 bg-refract-bg relative overflow-hidden border-t border-white/5">
-      {/* Background Text Overlay */}
-      <div className="bg-text absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        <h2 className="text-[25vw] font-black text-white/5 whitespace-nowrap leading-none tracking-tighter select-none">
-          BUILD ENVIRONMENT
-        </h2>
-      </div>
+    <section
+      id="build-environment"
+      ref={sectionRef}
+      className="relative overflow-hidden border-t border-white/8 bg-[#050505] px-6 py-28 md:py-36"
+    >
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D7B46A]/24 to-transparent" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mb-24">
-          <h3 className="text-4xl md:text-5xl font-black mb-8 leading-[1.1]">
-            A proven stack for <span className="text-white/30">speed and scale.</span>
-          </h3>
-          <p className="text-white/50 text-xl leading-relaxed">
-            We leverage these tools to ensure reliability and uncompromising polish across every digital product we ship.
-          </p>
+      <div className="container relative z-10 mx-auto max-w-7xl">
+        <div className="stack-copy grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <span className="mb-5 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">Build environment</span>
+            <h2 className="max-w-4xl text-5xl font-black leading-[0.94] tracking-normal text-white md:text-7xl">
+              Tools are only useful when the workflow is sharp.
+            </h2>
+          </div>
+
+          <div className="max-w-2xl">
+            <p className="text-lg leading-relaxed text-white/58">
+              The stack is designed around clarity, speed, and handoff. We keep the visual layer rich, but the system
+              underneath stays simple enough to maintain after launch.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {["Static-first", "Image-light", "Motion-limited", "Analytics-ready"].map((tag) => (
+                <span key={tag} className="rounded-full border border-white/12 px-4 py-2 text-xs font-bold text-white/52">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Marquee Wrapper */}
-        <div className="relative overflow-visible group">
-          <div ref={marqueeRef} className="flex gap-12 md:gap-24 items-center whitespace-nowrap w-fit">
-            {[...techStack, ...techStack].map((tech, i) => (
-              <div 
-                key={i}
-                className="text-3xl md:text-5xl font-bold text-white/20 hover:text-refract-orange transition-colors duration-500 cursor-default"
-              >
-                {tech}
+        <div className="stack-grid mt-16 grid gap-4 md:grid-cols-2">
+          {systems.map((system) => (
+            <article key={system.label} className="stack-system rounded-lg border border-white/12 bg-white/[0.035] p-6">
+              <div className="mb-8 flex items-center justify-between border-b border-white/10 pb-5">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#D7B46A]">{system.label}</span>
+                <span className="h-2 w-16 rounded-full bg-white/12" />
+              </div>
+              <h3 className="text-2xl font-black tracking-normal text-white">{system.title}</h3>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/54">{system.description}</p>
+              <div className="mt-7 grid grid-cols-2 gap-2">
+                {system.tools.map((tool) => (
+                  <span key={tool} className="rounded-md border border-white/10 bg-[#080808] px-3 py-3 text-sm font-bold text-white/58">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="stack-system mt-6 rounded-lg border border-white/12 bg-[#080808] p-4">
+          <div className="grid gap-2 md:grid-cols-7">
+            {timeline.map((item, index) => (
+              <div key={item} className="flex items-center gap-3 rounded-md bg-white/[0.035] px-4 py-4">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#D7B46A] text-xs font-black text-black">
+                  {index + 1}
+                </span>
+                <span className="text-sm font-black uppercase tracking-[0.12em] text-white/56">{item}</span>
               </div>
             ))}
           </div>
-          
-          {/* Side Fades */}
-          <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-refract-bg to-transparent z-20" />
-          <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-refract-bg to-transparent z-20" />
-        </div>
-
-        <div className="mt-24 flex flex-wrap gap-4">
-           {["Start a project", "Explore services"].map((btn, i) => (
-             <button 
-              key={i}
-              className={`px-8 py-4 rounded-full font-bold transition-all duration-300 ${
-                i === 0 ? "bg-refract-orange text-white hover:scale-105" : "bg-white/5 border border-white/10 text-white hover:bg-white/10"
-              }`}
-             >
-               {btn}
-             </button>
-           ))}
         </div>
       </div>
     </section>

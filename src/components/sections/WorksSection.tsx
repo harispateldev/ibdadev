@@ -1,110 +1,155 @@
 "use client";
 
-import React, { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { COLOR } from "@/constants/colors";
-import Image from "next/image";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-gsap.registerPlugin(ScrollTrigger);
+type Proof = {
+  mark: string;
+  outcome: string;
+  move: string;
+  line: string;
+  color: string;
+  glow: string;
+  curve: string;
+};
 
-const projects = [
+const proofs: Proof[] = [
   {
-    title: "Project Aether",
-    category: "3D Identity",
-    color: "bg-blue-500/10 border-blue-500/20",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
+    mark: "01",
+    outcome: "Trust",
+    move: "Launch",
+    line: "A new business looks ready before the first call.",
+    color: "#D7B46A",
+    glow: "rgba(215,180,106,0.28)",
+    curve: "M34 168 C112 52 214 52 302 142 C354 194 414 182 486 82",
   },
   {
-    title: "Project Sentinel",
-    category: "SaaS Platform",
-    color: "bg-purple-500/10 border-purple-500/20",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
+    mark: "02",
+    outcome: "Demand",
+    move: "Convert",
+    line: "The offer is easier to understand and act on.",
+    color: "#60E6D2",
+    glow: "rgba(96,230,210,0.24)",
+    curve: "M34 190 C122 124 194 114 282 154 C360 190 416 162 486 98",
   },
   {
-    title: "Project Nexus",
-    category: "Web3 Ecosystem",
-    color: "bg-refract-orange/10 border-refract-orange/20",
-    image: "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Project Chronos",
-    category: "AI Dashboard",
-    color: "bg-emerald-500/10 border-emerald-500/20",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+    mark: "03",
+    outcome: "Flow",
+    move: "Operate",
+    line: "Apps and dashboards become calmer to use.",
+    color: "#8E7CFF",
+    glow: "rgba(142,124,255,0.25)",
+    curve: "M34 112 C124 198 232 210 318 142 C384 88 426 92 486 138",
   },
 ];
 
-export const WorksSection = () => {
-  const component = useRef(null);
-  const slider = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const panels = gsap.utils.toArray(".panel");
-      gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: slider.current,
-          pin: true,
-          scrub: 1,
-          snap: 1 / (panels.length - 1),
-          start: "top top",
-          end: () => "+=" + slider.current?.offsetWidth,
-          invalidateOnRefresh: true,
-        },
-      });
-    }, component);
-    return () => ctx.revert();
-  }, []);
+const ProofSignal = ({ proof, index }: { proof: Proof; index: number }) => {
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div ref={component} className="overflow-x-hidden">
-      <div ref={slider} className="flex flex-nowrap w-[400vw] h-screen items-center bg-refract-bg relative">
-        {/* Background Large Text */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-           <h1 className="text-[40vw] font-black tracking-tighter">WORKS</h1>
+    <motion.article
+      initial={{ opacity: 0, y: 26 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-90px" }}
+      transition={{ duration: 0.55, delay: index * 0.08 }}
+      className="group relative min-h-[460px] overflow-hidden rounded-xl bg-white/[0.032] p-7 shadow-[0_30px_100px_rgba(0,0,0,0.34)] md:min-h-[540px] md:p-8"
+    >
+      <div className="absolute inset-0 opacity-80" style={{ background: `radial-gradient(circle at 54% 44%, ${proof.glow}, transparent 18rem)` }} />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:48px_48px] opacity-35" />
+      <motion.div
+        aria-hidden="true"
+        animate={shouldReduceMotion ? undefined : { x: ["-60%", "160%"] }}
+        transition={shouldReduceMotion ? undefined : { duration: 6 + index, repeat: Infinity, ease: "linear" }}
+        className="absolute top-0 h-full w-28 bg-gradient-to-r from-transparent via-white/[0.055] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      />
+
+      <div className="relative z-10 flex h-full min-h-[404px] flex-col justify-between md:min-h-[476px]">
+        <div className="flex items-center justify-between gap-6">
+          <span className="text-sm font-black uppercase tracking-[0.2em]" style={{ color: proof.color }}>
+            {proof.mark}
+          </span>
+          <span className="text-xs font-black uppercase tracking-[0.22em] text-white/35">{proof.move}</span>
         </div>
 
-        {projects.map((project, i) => (
-          <section 
-            key={i} 
-            className="panel w-screen h-screen flex items-center justify-center p-6 md:p-24 relative z-10"
-          >
-            <div 
-              className={`w-full max-w-6xl h-[70vh] rounded-[48px] border-2 shadow-2xl p-8 md:p-12 flex flex-col md:flex-row gap-12 group transition-all duration-500 ${project.color}`}
-            >
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
-                   <span className="text-refract-orange font-bold tracking-widest uppercase text-sm mb-4 block">
-                     {project.category}
-                   </span>
-                   <h2 className="text-5xl md:text-8xl font-black mb-6 leading-tight group-hover:translate-x-4 transition-transform duration-500">
-                     {project.title.split(' ')[0]} <br />
-                     <span className="text-white/30">{project.title.split(' ')[1]}</span>
-                   </h2>
-                </div>
-                <button className="flex items-center gap-4 text-xl font-bold group/btn">
-                  View Case Study
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-all">
-                    ↗
-                  </div>
-                </button>
-              </div>
-              
-              <div className="flex-1 relative rounded-[32px] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-            </div>
-          </section>
-        ))}
+        <div className="relative my-10 min-h-[190px]">
+          <svg viewBox="0 0 520 260" className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
+            <path d="M54 48 H470M54 212 H470M86 34 V228M260 34 V228M434 34 V228" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <motion.path
+              d={proof.curve}
+              fill="none"
+              stroke={proof.color}
+              strokeWidth="4"
+              strokeLinecap="round"
+              initial={shouldReduceMotion ? false : { pathLength: 0, opacity: 0.25 }}
+              whileInView={{ pathLength: 1, opacity: 0.92 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.1, ease: "easeOut" }}
+            />
+            {[86, 260, 434].map((x, dotIndex) => (
+              <motion.circle
+                key={x}
+                cx={x}
+                cy={[156, 118, 94][dotIndex]}
+                r={dotIndex === 2 ? 12 : 8}
+                fill={dotIndex === 2 ? proof.color : "#080706"}
+                stroke={proof.color}
+                strokeWidth="2"
+                initial={shouldReduceMotion ? false : { scale: 0.4, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: dotIndex * 0.09, duration: 0.35 }}
+              />
+            ))}
+          </svg>
+
+          <span className="absolute bottom-0 left-0 text-[5.2rem] font-black uppercase leading-none tracking-normal text-white/[0.055] md:text-[7rem]">
+            {proof.outcome}
+          </span>
+        </div>
+
+        <div>
+          <h3 className="text-5xl font-black uppercase leading-[0.88] tracking-normal text-white md:text-6xl">
+            {proof.outcome}
+          </h3>
+          <p className="mt-5 max-w-sm text-base font-semibold leading-relaxed text-white/54">{proof.line}</p>
+        </div>
       </div>
-    </div>
+    </motion.article>
+  );
+};
+
+export const WorksSection = () => {
+  return (
+    <section id="selected-systems" className="relative overflow-hidden bg-[#050505] px-6 py-24 md:py-32">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
+      <div className="absolute -left-24 top-44 h-80 w-80 rounded-full bg-ibda-gold/6 blur-3xl" />
+      <div className="absolute -right-24 bottom-20 h-80 w-80 rounded-full bg-ibda-cyan/6 blur-3xl" />
+
+      <div className="container relative z-10 mx-auto max-w-7xl">
+        <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">Selected work</p>
+            <h2 className="max-w-5xl text-5xl font-black leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
+              Make the result visible.
+            </h2>
+          </div>
+          <a
+            href="/work"
+            className="group inline-flex w-fit items-center gap-3 text-sm font-black uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-ibda-gold"
+          >
+            View work
+            <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+              -&gt;
+            </span>
+          </a>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-3">
+          {proofs.map((proof, index) => (
+            <ProofSignal key={proof.mark} proof={proof} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };

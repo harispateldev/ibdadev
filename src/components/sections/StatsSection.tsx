@@ -1,105 +1,139 @@
 "use client";
 
-import React, { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { COLOR } from "@/constants/colors";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-gsap.registerPlugin(ScrollTrigger);
+const gates = ["Message", "Offer", "Speed", "Mobile", "Handoff"];
 
-const stats = [
+const promises = [
   {
-    label: "Revenue Supported",
-    value: "$100M+",
-    description: "Systems backing nine-figure revenue. When performance is non-negotiable, we deliver.",
+    title: "Clear",
+    line: "People understand what you do.",
+    color: "#D7B46A",
   },
   {
-    label: "Assets Deployed",
-    value: "100+",
-    description: "Production-ready assets for every channel. Ship campaigns and launches with confidence.",
+    title: "Fast",
+    line: "Motion never slows the page.",
+    color: "#60E6D2",
   },
   {
-    label: "Enterprise DNA",
-    value: "$2.65B",
-    description: "Applying the architectural standards of a multi-billion dollar valuation to your brand.",
+    title: "Ready",
+    line: "The team can launch and iterate.",
+    color: "#8E7CFF",
   },
 ];
 
-export const StatsSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // Header Animation
-      gsap.from(".stats-header", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
-
-      // Cards Animation
-      cardsRef.current.forEach((card, index) => {
-        if (!card) return;
-        gsap.from(card, {
-          opacity: 0,
-          y: 40,
-          scale: 0.95,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-          },
-        });
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+const LaunchGauge = () => {
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section ref={sectionRef} className="py-32 px-6 bg-[#050505] relative overflow-hidden">
-      {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-refract-orange/5 blur-[120px] rounded-full pointer-events-none" />
+    <div className="relative min-h-[420px] overflow-hidden rounded-xl bg-[#0C0B09] p-7 shadow-[0_36px_120px_rgba(0,0,0,0.4)] md:min-h-[520px] md:p-10">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,rgba(215,180,106,0.20),transparent_18rem),radial-gradient(circle_at_80%_22%,rgba(96,230,210,0.10),transparent_16rem)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.028)_1px,transparent_1px)] bg-[length:54px_54px] opacity-45" />
 
-      <div className="container mx-auto max-w-7xl">
-        <div className="stats-header mb-20 text-center">
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
-            Impact <span className="text-white/30">at scale</span>
-          </h2>
-          <p className="text-white/40 max-w-2xl mx-auto text-lg">
-            Design is subjective. Performance is not. We build systems that perform at the highest level.
-          </p>
+      <div className="relative z-10 flex min-h-[366px] flex-col justify-between md:min-h-[440px]">
+        <div className="flex items-start justify-between gap-6">
+          <p className="text-[11px] font-black uppercase tracking-[0.24em] text-white/34">Launch check</p>
+          <p className="text-[11px] font-black uppercase tracking-[0.24em] text-ibda-gold">5/5 ready</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              ref={(el) => { cardsRef.current[i] = el; }}
-              className="bg-white/5 border border-white/10 p-10 rounded-[40px] hover:border-refract-orange/30 transition-colors group relative overflow-hidden"
+        <div className="relative mx-auto my-8 aspect-square w-full max-w-[430px]">
+          <svg viewBox="0 0 420 420" className="h-full w-full overflow-visible" aria-hidden="true">
+            <path d="M54 248 A160 160 0 0 1 366 248" fill="none" stroke="rgba(255,255,255,0.10)" strokeWidth="18" strokeLinecap="round" />
+            <motion.path
+              d="M54 248 A160 160 0 0 1 366 248"
+              fill="none"
+              stroke="#D7B46A"
+              strokeWidth="18"
+              strokeLinecap="round"
+              initial={shouldReduceMotion ? false : { pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            />
+            {[0, 1, 2, 3, 4].map((item) => {
+              const angle = 205 + item * 32.5;
+              const rad = (angle * Math.PI) / 180;
+              const x = 210 + Math.cos(rad) * 162;
+              const y = 248 + Math.sin(rad) * 162;
+              return (
+                <motion.circle
+                  key={item}
+                  cx={x}
+                  cy={y}
+                  r="9"
+                  fill={item === 0 ? "#D7B46A" : item === 2 ? "#60E6D2" : item === 4 ? "#8E7CFF" : "#080706"}
+                  stroke="#D7B46A"
+                  strokeWidth="2"
+                  initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ delay: item * 0.08, duration: 0.3 }}
+                />
+              );
+            })}
+          </svg>
+
+          <div className="absolute inset-0 grid place-items-center text-center">
+            <motion.div
+              animate={shouldReduceMotion ? undefined : { scale: [1, 1.035, 1] }}
+              transition={shouldReduceMotion ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="grid h-44 w-44 place-items-center rounded-full bg-[#080706] shadow-[0_28px_90px_rgba(0,0,0,0.55),inset_0_0_0_1px_rgba(255,255,255,0.12)]"
             >
-              {/* Card Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-refract-orange/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <span className="text-refract-orange font-bold uppercase tracking-widest text-xs mb-8 block relative z-10">
-                {stat.label}
-              </span>
-              <h3 className="text-5xl md:text-6xl font-black mb-6 relative z-10 group-hover:scale-105 transition-transform duration-500 origin-left">
-                {stat.value}
-              </h3>
-              <p className="text-white/50 leading-relaxed relative z-10">
-                {stat.description}
-              </p>
-            </div>
+              <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-white/34">Quality</span>
+              <span className="block text-6xl font-black leading-none text-white">5/5</span>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-5 gap-2 text-center">
+          {gates.map((gate) => (
+            <span key={gate} className="text-[10px] font-black uppercase tracking-[0.12em] text-white/38 md:text-xs">
+              {gate}
+            </span>
           ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const StatsSection = () => {
+  return (
+    <section id="proof-discipline" className="relative overflow-hidden bg-[#050505] px-6 py-24 md:py-32">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
+      <div className="absolute -right-20 top-20 h-80 w-80 rounded-full bg-ibda-gold/6 blur-3xl" />
+
+      <div className="container relative z-10 mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1fr] lg:items-end">
+          <div>
+            <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">Launch standard</p>
+            <h2 className="max-w-4xl text-5xl font-black leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
+              Built to launch clean.
+            </h2>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3 lg:justify-self-end">
+            {promises.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-90px" }}
+                transition={{ duration: 0.42, delay: index * 0.08 }}
+                className="min-h-32 rounded-xl bg-white/[0.035] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.26)]"
+              >
+                <span className="block text-3xl font-black uppercase leading-none tracking-normal" style={{ color: item.color }}>
+                  {item.title}
+                </span>
+                <p className="mt-4 text-sm font-semibold leading-relaxed text-white/50">{item.line}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <LaunchGauge />
         </div>
       </div>
     </section>

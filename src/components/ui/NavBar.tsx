@@ -32,15 +32,15 @@ export const NavBar = () => {
       <nav
         className={cn(
           "nav-glass p-2 flex items-center gap-8 rounded-full transition-all duration-500 pointer-events-auto backdrop-blur-sm border border-white/10 shadow-2xl",
-          scrolled ? "scale-95 shadow-black/80 bg-black/40" : "scale-100 bg-white/5"
+          scrolled ? "scale-95 shadow-black/80 bg-black/55" : "scale-100 bg-white/5"
         )}
       >
         <Link 
           href="/" 
-          className="orange-pill px-6 h-9 rounded-full flex items-center gap-2 group transition-all duration-300 hover:brightness-110 active:scale-95 shadow-lg"
+          className="gold-pill px-6 h-9 rounded-full flex items-center gap-2 group transition-all duration-300 hover:brightness-110 active:scale-95 shadow-lg"
         >
           <span className="text-white font-black tracking-tighter text-base leading-none">
-            ZAH Creations
+            IbdaDev
           </span>
         </Link>
   
@@ -61,10 +61,10 @@ export const NavBar = () => {
       {/* CTA Button - Far Right Corner (Outside the pill) */}
       <div className="flex-1 flex justify-end pointer-events-auto">
         <Link 
-          href="/work" 
-          className="orange-pill px-8 py-3.5 rounded-full text-white font-black text-sm transition-all duration-300 hover:brightness-110 active:scale-95 shadow-[0_0_20px_rgba(255,94,40,0.3)]"
+          href="/work#start-project" 
+          className="accent-pill px-8 py-3.5 rounded-full text-white font-black text-sm transition-all duration-300 hover:brightness-110 active:scale-95"
         >
-          Work With Us
+          Start a Project
         </Link>
       </div>
     </div>

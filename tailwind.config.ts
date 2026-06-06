@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss/types/config";
-
-const config: Config = {
+const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,13 +9,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        refract: {
-          bg: "#0a0a0a",
-          surface: "#1c1c1c",
-          orange: "#ff5e28",
-          blue: "#327eea",
-          purple: "#893fd1",
-          border: "rgba(255, 255, 255, 0.1)",
+        ibda: {
+          bg: "#050505",
+          surface: "#11100E",
+          panel: "#171512",
+          accent: "#8E7CFF",
+          gold: "#D7B46A",
+          cyan: "#60E6D2",
+          ember: "#F06A3D",
+          border: "rgba(215, 180, 106, 0.16)",
         }
       },
       fontFamily: {

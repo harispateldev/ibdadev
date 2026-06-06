@@ -10,15 +10,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({ className, variant = "primary", children, ...props }: ButtonProps) => {
   const variants = {
-    primary: "bg-refract-orange text-white hover:scale-105 shadow-[0_0_20px_rgba(255,94,40,0.3)] hover:shadow-[0_0_30px_rgba(255,94,40,0.5)]",
+    primary: "bg-[#D7B46A] text-[#050505] hover:-translate-y-0.5 shadow-[0_18px_45px_rgba(215,180,106,0.22)] hover:shadow-[0_22px_60px_rgba(215,180,106,0.28)]",
     secondary: "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md",
-    outline: "border border-white/20 text-white hover:bg-white/10",
+    outline: "border border-ibda-border text-white hover:bg-white/10",
   };
 
   return (
     <button
       className={cn(
-        "px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 relative overflow-hidden group",
+        "px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 relative overflow-hidden group",
         variants[variant],
         className
       )}

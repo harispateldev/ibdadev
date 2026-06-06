@@ -35,7 +35,7 @@ export const ImageMarquee = ({ reverse = false, speed = 40 }: { reverse?: boolea
   }, []);
 
   return (
-    <div className="py-20 bg-refract-bg overflow-hidden relative z-10">
+    <div className="py-20 bg-ibda-bg overflow-hidden relative z-10">
       <div 
         ref={marqueeRef} 
         className="flex shrink-0 whitespace-nowrap transform-gpu-blur will-change-transform w-fit"
@@ -55,8 +55,8 @@ export const ImageMarquee = ({ reverse = false, speed = 40 }: { reverse?: boolea
       </div>
       
       {/* Side Fades for depth */}
-      <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-refract-bg to-transparent z-20 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-refract-bg to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-ibda-bg to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-ibda-bg to-transparent z-20 pointer-events-none" />
     </div>
   );
 };

@@ -1,0 +1,404 @@
+[debug] [2026-06-04T15:55:50.900Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.903Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.903Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.905Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.905Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.921Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.921Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.921Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.921Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.921Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.922Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.922Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.922Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.922Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.922Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.923Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.923Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.923Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.923Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.923Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.926Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.926Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.926Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.926Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.926Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.927Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.927Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.927Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.927Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.927Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.939Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.939Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.939Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.939Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.939Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.940Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.940Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.940Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.940Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.940Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.942Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.942Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.942Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.942Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.942Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.943Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.943Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.943Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.944Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.944Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.945Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.945Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.945Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.945Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.945Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.946Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.946Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.946Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.949Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.949Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.950Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.950Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.950Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.951Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.951Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.951Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.951Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.951Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.951Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.951Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.952Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.952Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.952Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.952Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.952Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.953Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.953Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.953Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.953Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.953Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.954Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.954Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.954Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.954Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.954Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:50.954Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.954Z] Checked if tokens are valid: false, expires at: 1780575395127
+[debug] [2026-06-04T15:55:50.954Z] > refreshing access token with scopes: []
+[debug] [2026-06-04T15:55:50.954Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-04T15:55:50.954Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.117Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.117Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.134Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [none]
+[debug] [2026-06-04T15:55:51.134Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.137Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.137Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.152Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.152Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.156Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.156Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.171Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.171Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.172Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.172Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.185Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [none]
+[debug] [2026-06-04T15:55:51.185Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.186Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.186Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.198Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.198Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.199Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.199Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.212Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.212Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.212Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.213Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.225Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.225Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.226Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.226Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.239Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [none]
+[debug] [2026-06-04T15:55:51.239Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.240Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.240Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.256Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.256Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.256Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.256Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.271Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.271Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.271Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.271Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.285Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.285Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.286Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.286Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.299Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [none]
+[debug] [2026-06-04T15:55:51.299Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.301Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.301Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.313Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.313Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.314Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.314Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.327Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.327Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.328Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.328Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.342Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.342Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.344Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.344Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.358Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [none]
+[debug] [2026-06-04T15:55:51.358Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.370Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.370Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.384Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-06-04T15:55:51.384Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:51.385Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-04T15:55:51.385Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-04T15:55:51.399Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [none]
+[debug] [2026-06-04T15:55:51.399Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-04T15:55:52.887Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com 403
+[debug] [2026-06-04T15:55:52.887Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [omitted]
+[debug] [2026-06-04T15:55:52.918Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-06-04T15:55:52.918Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:52.927Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com 403
+[debug] [2026-06-04T15:55:52.927Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [omitted]
+[debug] [2026-06-04T15:55:52.930Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com 403
+[debug] [2026-06-04T15:55:52.930Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [omitted]
+[debug] [2026-06-04T15:55:52.947Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-06-04T15:55:52.947Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:52.972Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com 200
+[debug] [2026-06-04T15:55:52.972Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:52.977Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-06-04T15:55:52.977Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:52.978Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com 200
+[debug] [2026-06-04T15:55:52.978Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:52.978Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com 200
+[debug] [2026-06-04T15:55:52.978Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:53.009Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-06-04T15:55:53.009Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:53.016Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-06-04T15:55:53.016Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:53.063Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com 200
+[debug] [2026-06-04T15:55:53.064Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:53.066Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-06-04T15:55:53.067Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:53.251Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ 200
+[debug] [2026-06-04T15:55:53.251Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [omitted]
+[debug] [2026-06-04T15:55:53.310Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com 200
+[debug] [2026-06-04T15:55:53.311Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:53.950Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-04T15:55:53.950Z] > authorizing via signed-in user (hermonycode@gmail.com)
+[debug] [2026-06-04T15:55:53.953Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-04T15:55:53.953Z] > authorizing via signed-in user (hermonycode@gmail.com)
+[debug] [2026-06-04T15:55:54.505Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com 200
+[debug] [2026-06-04T15:55:54.505Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2026-06-04T15:55:55.068Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ 200
+[debug] [2026-06-04T15:55:55.069Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [omitted]
+[debug] [2026-06-04T15:55:55.149Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ 200
+[debug] [2026-06-04T15:55:55.149Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [omitted]
+[debug] [2026-06-06T13:44:33.161Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.163Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.163Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.164Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.164Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.179Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.179Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.179Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.179Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.179Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.180Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.180Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.180Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.180Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.180Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.181Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.181Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.181Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.182Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.182Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.182Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.182Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.182Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.183Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.183Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.183Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.183Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.183Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.183Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.183Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.196Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.197Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.197Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.197Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.197Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.202Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.202Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.202Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.202Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.202Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.203Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.203Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.203Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.203Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.203Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.204Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.204Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.204Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.204Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.204Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.205Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.205Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.205Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.205Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.205Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.205Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.205Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.205Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.205Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.205Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.206Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.206Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.206Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.206Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.206Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.207Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.207Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.207Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.207Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.207Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.208Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.208Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.208Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.208Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.208Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.208Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.208Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.208Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.209Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.209Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.209Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.209Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.209Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.209Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.209Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.210Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.210Z] Checked if tokens are valid: false, expires at: 1780752664772
+[debug] [2026-06-06T13:44:33.210Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T13:44:33.210Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T13:44:33.210Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.377Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.377Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.405Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [none]
+[debug] [2026-06-06T13:44:33.406Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.410Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.410Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.428Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.428Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.430Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.430Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.443Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [none]
+[debug] [2026-06-06T13:44:33.443Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.444Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.444Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.459Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.459Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.460Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.460Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.475Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.475Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.476Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.476Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.489Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.489Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.490Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.490Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.508Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.508Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.509Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.509Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.527Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.528Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.529Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.529Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.543Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.543Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.544Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.544Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.560Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.560Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.562Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.562Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.577Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.577Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.578Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.578Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.592Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.593Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.594Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.594Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.608Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [none]
+[debug] [2026-06-06T13:44:33.608Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.612Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.612Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.627Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.627Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.628Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.628Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.642Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [none]
+[debug] [2026-06-06T13:44:33.642Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.642Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.642Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.656Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [none]
+[debug] [2026-06-06T13:44:33.656Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.662Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.662Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.675Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-06-06T13:44:33.675Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:33.676Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T13:44:33.676Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T13:44:33.689Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [none]
+[debug] [2026-06-06T13:44:33.689Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ x-goog-quota-user=projects/shri-kailash-kalamkari
+[debug] [2026-06-06T13:44:35.190Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-06-06T13:44:35.190Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.204Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com 403
+[debug] [2026-06-06T13:44:35.204Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [omitted]
+[debug] [2026-06-06T13:44:35.224Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com 200
+[debug] [2026-06-06T13:44:35.224Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.244Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com 200
+[debug] [2026-06-06T13:44:35.244Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.277Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com 200
+[debug] [2026-06-06T13:44:35.277Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.278Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-06-06T13:44:35.278Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.312Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-06-06T13:44:35.313Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.313Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-06-06T13:44:35.313Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.313Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com 403
+[debug] [2026-06-06T13:44:35.313Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [omitted]
+[debug] [2026-06-06T13:44:35.334Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com 200
+[debug] [2026-06-06T13:44:35.334Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firestore.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.349Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com 200
+[debug] [2026-06-06T13:44:35.349Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.355Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-06-06T13:44:35.355Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.431Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com 200
+[debug] [2026-06-06T13:44:35.431Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.436Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com 403
+[debug] [2026-06-06T13:44:35.436Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseio.com [omitted]
+[debug] [2026-06-06T13:44:35.631Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-06-06T13:44:35.631Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-06-06T13:44:35.644Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ 200
+[debug] [2026-06-06T13:44:35.644Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [omitted]
+[debug] [2026-06-06T13:44:35.765Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ 200
+[debug] [2026-06-06T13:44:35.765Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [omitted]
+[debug] [2026-06-06T13:44:35.767Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-06T13:44:35.767Z] > authorizing via signed-in user (hermonycode@gmail.com)
+[debug] [2026-06-06T13:44:35.891Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ 200
+[debug] [2026-06-06T13:44:35.891Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shri-kailash-kalamkari/services/ [omitted]
+[debug] [2026-06-06T13:44:35.893Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-06T13:44:35.893Z] > authorizing via signed-in user (hermonycode@gmail.com)

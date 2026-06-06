@@ -20,7 +20,7 @@ export const WorkCard = ({ title, category, desc, image, colors, index }: WorkCa
       transition={{ delay: (index % 2) * 0.2, duration: 0.8 }}
       className="group"
     >
-      <div className="relative aspect-[4/5] md:aspect-[16/10] rounded-[40px] overflow-hidden mb-8 border border-white/10 bg-white/5 backdrop-blur-xl backdrop-saturate-180 transition-all duration-700 hover:border-refract-orange/30 p-2 md:p-3 shadow-2xl">
+      <div className="relative aspect-[4/5] md:aspect-[16/10] rounded-[40px] overflow-hidden mb-8 border border-white/10 bg-white/5 backdrop-blur-xl backdrop-saturate-180 transition-all duration-700 hover:border-ibda-accent/30 p-2 md:p-3 shadow-2xl">
         <div className="w-full h-full overflow-hidden rounded-[30px] relative">
           <img 
             src={image} 
@@ -43,8 +43,8 @@ export const WorkCard = ({ title, category, desc, image, colors, index }: WorkCa
       </div>
 
       <div className="px-4">
-        <span className="text-refract-orange font-bold uppercase tracking-widest text-xs mb-2 block">{category}</span>
-        <h3 className="text-4xl font-black mb-4 tracking-tight group-hover:text-refract-orange transition-colors">{title}</h3>
+        <span className="text-ibda-accent font-bold uppercase tracking-widest text-xs mb-2 block">{category}</span>
+        <h3 className="text-4xl font-black mb-4 tracking-tight group-hover:text-ibda-accent transition-colors">{title}</h3>
         <p className="text-lg text-white/50 leading-relaxed font-medium max-w-md">{desc}</p>
       </div>
     </motion.div>

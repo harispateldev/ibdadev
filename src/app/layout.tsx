@@ -9,8 +9,8 @@ import { FooterSection } from "@/components/sections/FooterSection";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RefractWeb | Digital Identity",
-  description: "Defining Digital Identity through code and design.",
+  title: "IbdaDev | Code with Creativity",
+  description: "Where Innovation Meets Development — crafting unique, modern digital experiences through creative coding and immersive design.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased bg-refract-bg text-white`}>
+      <body className={`${inter.className} antialiased bg-ibda-bg text-white`}>
         <SmoothScroll>
           <NavBar />
           {children}

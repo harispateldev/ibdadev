@@ -13,7 +13,7 @@ export const TeamMemberCard = ({ name, role, image }: TeamMemberProps) => {
   return (
     <motion.div 
       whileHover={{ y: -10 }}
-      className="group relative rounded-[32px] overflow-hidden bg-refract-surface border border-white/5 p-4 transition-colors hover:border-refract-orange/30"
+      className="group relative rounded-[32px] overflow-hidden bg-ibda-surface border border-white/5 p-4 transition-colors hover:border-ibda-accent/30"
     >
       <div className="aspect-square rounded-[24px] overflow-hidden mb-6 relative">
          <img 
@@ -29,7 +29,7 @@ export const TeamMemberCard = ({ name, role, image }: TeamMemberProps) => {
       </div>
       
       {/* Corner Glow */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-refract-orange/0 group-hover:bg-refract-orange/5 blur-[60px] transition-all" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-ibda-accent/0 group-hover:bg-ibda-accent/5 blur-[60px] transition-all" />
     </motion.div>
   );
 };
