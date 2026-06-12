@@ -6,11 +6,9 @@ import gsap from "gsap";
 import { HeroCanvasDynamic } from "@/components/three/HeroCanvasDynamic";
 
 const flowPoints = [
-  { label: "Need", value: "Mapped", x: "6%", y: "38%", color: "#D7B46A", delay: 0 },
-  { label: "AI", value: "Connected", x: "31%", y: "14%", color: "#60E6D2", delay: 0.12 },
-  { label: "Product", value: "Built", x: "66%", y: "19%", color: "#8E7CFF", delay: 0.24 },
-  { label: "Apps", value: "Shipped", x: "75%", y: "62%", color: "#F06A3D", delay: 0.36 },
-  { label: "Ops", value: "Automated", x: "35%", y: "76%", color: "#D7B46A", delay: 0.48 },
+  { label: "AI", value: "Connected", x: "28%", y: "10%", color: "#60E6D2", delay: 0 },
+  { label: "Product", value: "Built", x: "68%", y: "18%", color: "#8E7CFF", delay: 0.14 },
+  { label: "Ops", value: "Automated", x: "72%", y: "64%", color: "#F06A3D", delay: 0.28 },
 ];
 
 const surfaces = ["AI Tool", "Web App", "Mobile", "Dashboard"];
@@ -141,14 +139,6 @@ const HeroTheater = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          animate={shouldReduceMotion ? undefined : { y: [0, 9, 0], rotateZ: [-7, -4, -7] }}
-          transition={shouldReduceMotion ? undefined : { duration: 6.4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[1%] top-[25%] z-30 w-[31%] min-w-[145px] bg-[#D7B46A] p-4 text-black shadow-[0_24px_90px_rgba(215,180,106,0.30)] [transform:translateZ(90px)_rotateZ(-7deg)]"
-        >
-          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-black/54">Business need</p>
-          <p className="mt-2 text-xl font-black uppercase leading-none md:text-2xl">Leads + ops</p>
-        </motion.div>
       </motion.div>
     </motion.div>
   );
@@ -182,8 +172,7 @@ export const HeroSection = () => {
       <HeroCanvasDynamic />
 
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ibda-gold/40 to-transparent" />
-      <div className="absolute right-[-14vw] top-20 hidden h-[48vw] max-h-[660px] w-[48vw] max-w-[660px] bg-[radial-gradient(circle,rgba(96,230,210,0.10),transparent_58%)] md:block" />
-      <div className="absolute left-[-16vw] bottom-[-10vw] hidden h-[40vw] max-h-[520px] w-[40vw] max-w-[520px] bg-[radial-gradient(circle,rgba(142,124,255,0.09),transparent_62%)] lg:block" />
+      <div className="absolute right-[-14vw] top-20 hidden h-[48vw] max-h-[660px] w-[48vw] max-w-[660px] bg-[radial-gradient(circle,rgba(96,230,210,0.08),transparent_58%)] md:block" />
 
       <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="flex flex-col items-start text-left">
@@ -193,7 +182,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.45 }}
             className="mb-7 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold"
           >
-            AI / SaaS / web / mobile / automation
+            From idea to working product
           </motion.p>
 
           {/* Headline with per-word clip-mask reveal */}
@@ -218,9 +207,9 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.58, delay: 0.22 }}
-            className="mt-8 max-w-xl text-base font-medium leading-relaxed text-white/56 md:text-xl"
+            className="mt-8 max-w-xl text-base font-medium leading-relaxed text-white/75 md:text-xl"
           >
-            AI tools, integrations, SaaS, mobile apps, dashboards, automations, and high-performance websites.
+            We design and build the systems that run your business — AI-connected, fully integrated, and shipped fast.
           </motion.p>
 
           <motion.div
@@ -229,14 +218,23 @@ export const HeroSection = () => {
             transition={{ duration: 0.58, delay: 0.32 }}
             className="mt-10 flex flex-wrap items-center justify-start gap-5"
           >
-            <a href="/work#start-project" className="rounded-full bg-[#D7B46A] px-8 py-4 text-base font-bold text-[#050505] shadow-[0_18px_45px_rgba(215,180,106,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(215,180,106,0.28)]">
+            <a href="/contact" className="rounded-full bg-[#D7B46A] px-8 py-4 text-base font-bold text-[#050505] shadow-[0_18px_45px_rgba(215,180,106,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(215,180,106,0.28)]">
               Start a Project
             </a>
-            <a href="/#services" className="group inline-flex items-center gap-3 py-4 text-sm font-black uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-ibda-gold">
-              See services
-              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
+            <a href="/work" className="group inline-flex items-center gap-3 py-4 text-sm font-black uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-ibda-gold">
+              View our work
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </a>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.52 }}
+            className="mt-6 text-xs font-medium tracking-wide text-white/38"
+          >
+            12 products shipped · 3 continents · 100% client retention
+          </motion.p>
         </div>
 
         <HeroTheater />

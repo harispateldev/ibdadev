@@ -9,28 +9,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 const capabilities = [
   {
-    title: "Web Development",
-    desc: "Transform concepts into high-performance experiences. We engineer story-driven websites that turn your brand into a premium digital product.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    color: "#6C63FF", // IbdaDev Indigo
+    mark: "01",
+    title: "Website",
+    desc: "High-performance site built for speed, trust, and conversions. We engineer story-driven pages that turn your brand into a premium digital product.",
+    outcome: "Rank higher. Convert visitors. Win on first impression.",
+    gradient: "from-[rgba(215,180,106,0.18)] via-[rgba(215,180,106,0.06)] to-transparent",
+    color: "#D7B46A",
   },
   {
-    title: "Strategic Branding",
-    desc: "We build strategic identities designed to secure a premium market position. Visual systems that scale across platforms while staying bold and timeless.",
-    image: "https://plus.unsplash.com/premium_photo-1661311835628-7f155dcdc0d2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "#D4A853", // IbdaDev Gold
+    mark: "02",
+    title: "Leads",
+    desc: "AI-powered funnels, forms, and outreach that fill your calendar. Turn passive traffic into active pipeline without hiring a sales team.",
+    outcome: "Turn traffic into booked calls and qualified deals.",
+    gradient: "from-[rgba(96,230,210,0.16)] via-[rgba(96,230,210,0.05)] to-transparent",
+    color: "#60E6D2",
   },
   {
-    title: "Software / AI",
-    desc: "We replace manual processes with intelligent software tailored to your specific operations. Custom tools and AI solutions engineered to give you an edge.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
-    color: "#00D4FF", // IbdaDev Cyan
+    mark: "03",
+    title: "Apps",
+    desc: "Custom web and mobile apps built around your exact workflow. Replace spreadsheets and manual steps with tools your team actually wants to use.",
+    outcome: "Replace manual steps with tools that scale.",
+    gradient: "from-[rgba(142,124,255,0.16)] via-[rgba(142,124,255,0.05)] to-transparent",
+    color: "#8E7CFF",
   },
   {
-    title: "Motion Systems",
-    desc: "We build lightweight interaction and scroll systems that make the experience feel premium without slowing the page or distracting from the offer.",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80",
-    color: "#7000ff",
+    mark: "04",
+    title: "AI Ops",
+    desc: "Automate repetitive tasks, data flows, and team operations with AI wired into your existing tools. Get more done with fewer people.",
+    outcome: "Get more done with fewer people and zero manual errors.",
+    gradient: "from-[rgba(240,106,61,0.16)] via-[rgba(240,106,61,0.05)] to-transparent",
+    color: "#F06A3D",
   },
 ];
 
@@ -89,46 +97,60 @@ export const CapabilitiesStacked = () => {
             }}
             className="w-full flex items-center justify-center min-h-screen py-20"
           >
-            <div 
-              className="w-[90%] md:w-[85%] h-[80vh] bg-ibda-surface border border-white/5 bg-black rounded-[48px] overflow-hidden flex flex-col md:flex-row shadow-2xl relative"
+            <div
+              className="relative w-[90%] overflow-hidden rounded-[48px] border border-white/[0.06] bg-[#0D0C0A] shadow-[0_48px_160px_rgba(0,0,0,0.52)] md:w-[85%] flex flex-col md:flex-row"
+              style={{ minHeight: "80vh" }}
             >
-              {/* Image Side */}
-              <div className="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-black/20">
-                <img 
-                  src={cap.image} 
-                  alt={cap.title} 
-                  className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-ibda-surface via-transparent to-transparent hidden md:block" />
+              {/* Visual Side */}
+              <div className="relative w-full overflow-hidden md:w-1/2 md:h-full" style={{ minHeight: "40vh" }}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${cap.gradient}`} />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.024)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[length:52px_52px]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <svg viewBox="0 0 200 200" width="220" height="220" aria-hidden="true">
+                      <circle cx="100" cy="100" r="88" fill="none" stroke={cap.color} strokeWidth="0.8" strokeOpacity="0.14" strokeDasharray="9 9" />
+                      <circle cx="100" cy="100" r="64" fill="none" stroke={cap.color} strokeWidth="1.2" strokeOpacity="0.22" />
+                      <circle cx="100" cy="100" r="40" fill={cap.color} fillOpacity="0.10" stroke={cap.color} strokeWidth="1.5" strokeOpacity="0.40" />
+                      <circle cx="100" cy="100" r="18" fill={cap.color} fillOpacity="0.28" />
+                    </svg>
+                    <span
+                      className="absolute inset-0 flex items-center justify-center text-[11px] font-black uppercase tracking-[0.28em]"
+                      style={{ color: cap.color }}
+                    >
+                      {cap.mark}
+                    </span>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0D0C0A]/80 hidden md:block" />
               </div>
 
               {/* Text Side */}
-              <div className="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 flex flex-col justify-center">
-                <span 
-                  className="w-12 h-1 rounded-full mb-8" 
-                  style={{ backgroundColor: cap.color }}
-                />
-                <h3 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase leading-none">
+              <div className="w-full md:w-1/2 md:h-full flex flex-col justify-center p-8 md:p-16">
+                <span className="w-10 h-[3px] rounded-full mb-8 block" style={{ backgroundColor: cap.color }} />
+                <h3
+                  className="text-4xl md:text-6xl font-black mb-4 tracking-tight uppercase leading-none"
+                  style={{ color: cap.color }}
+                >
                   {cap.title}
                 </h3>
-                <p className="text-lg md:text-xl text-white/50 leading-relaxed font-medium mb-12 max-w-lg">
+                <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium mb-4 max-w-lg">
                   {cap.desc}
                 </p>
-                
+                <p className="text-xs font-black uppercase tracking-[0.18em] mb-10" style={{ color: cap.color }}>
+                  {cap.outcome}
+                </p>
                 <a
-                  href="/work#start-project"
-                  className="group flex items-center gap-4 text-white font-bold tracking-widest uppercase text-sm"
+                  href="/contact"
+                  className="inline-flex items-center gap-3 rounded-full border px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] transition-all w-fit"
+                  style={{ borderColor: `${cap.color}50`, color: cap.color }}
                 >
-                  Get in Touch
-                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                    →
-                  </div>
+                  Start building →
                 </a>
               </div>
 
               {/* Number Indicator */}
-              <div className="absolute top-8 right-12 text-6xl font-black text-white/5 italic">
-                0{i + 1}
+              <div className="absolute top-8 right-10 text-7xl font-black italic text-white/[0.04]">
+                {cap.mark}
               </div>
             </div>
           </div>

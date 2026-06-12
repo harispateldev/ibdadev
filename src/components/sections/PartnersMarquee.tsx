@@ -21,11 +21,11 @@ const stackTools: Array<{ name: string; kind: LogoKind; tone: string }> = [
   { name: "Tailwind", kind: "tailwind", tone: "text-ibda-cyan" },
 ];
 
-const signals: Array<{ label: string; kind: SignalKind; className: string; color: string }> = [
-  { label: "Offer", kind: "offer", className: "left-[6%] top-[18%]", color: "text-ibda-gold" },
-  { label: "Web", kind: "web", className: "right-[7%] top-[12%]", color: "text-ibda-cyan" },
-  { label: "Lead", kind: "lead", className: "left-[10%] bottom-[18%]", color: "text-ibda-accent" },
-  { label: "CRM", kind: "system", className: "right-[10%] bottom-[16%]", color: "text-[#F06A3D]" },
+const signals: Array<{ label: string; outcome: string; kind: SignalKind; className: string; color: string; mobile: boolean }> = [
+  { label: "Website", outcome: "Traffic live", kind: "web", className: "left-[6%] top-[18%]", color: "text-ibda-gold", mobile: true },
+  { label: "Leads", outcome: "Auto-captured", kind: "lead", className: "right-[7%] top-[12%]", color: "text-ibda-cyan", mobile: true },
+  { label: "CRM", outcome: "Always synced", kind: "system", className: "left-[10%] bottom-[18%]", color: "text-ibda-accent", mobile: false },
+  { label: "Ops", outcome: "Automated", kind: "offer", className: "right-[10%] bottom-[16%]", color: "text-[#F06A3D]", mobile: false },
 ];
 
 const StackLogo = ({ kind }: { kind: LogoKind }) => {
@@ -162,7 +162,7 @@ export const PartnersMarquee = () => {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden border-y border-ibda-border bg-[#080706] px-6 py-24 md:py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(215,180,106,0.12),transparent_24rem),radial-gradient(circle_at_78%_28%,rgba(96,230,210,0.10),transparent_25rem),radial-gradient(circle_at_52%_92%,rgba(142,124,255,0.09),transparent_27rem)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(215,180,106,0.10),transparent_24rem),radial-gradient(circle_at_78%_28%,rgba(96,230,210,0.08),transparent_25rem),radial-gradient(circle_at_52%_92%,rgba(142,124,255,0.07),transparent_27rem)]" />
       <div className="absolute inset-0 theme-grid opacity-16" />
 
       <motion.div
@@ -177,16 +177,21 @@ export const PartnersMarquee = () => {
       </motion.div>
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.88fr_0.56fr] lg:items-end">
-          <div>
-            <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">Digital presence layer</p>
-            <h2 className="max-w-4xl text-4xl font-black leading-[0.92] tracking-normal md:text-6xl lg:text-7xl">
-              Make the business look ready.
-            </h2>
-          </div>
-          <p className="max-w-md text-base font-medium leading-relaxed text-white/54 md:text-lg lg:justify-self-end">
-            Website, leads, AI, and systems moving as one.
+        <div className="max-w-3xl">
+          <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">Digital presence layer</p>
+          <h2 className="text-4xl font-black leading-[0.92] tracking-normal md:text-6xl lg:text-7xl">
+            Website. Leads. Ops. Automated.
+          </h2>
+          <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-white/72 md:text-lg">
+            We connect your website, CRM, and operations into one system — visitors become leads, leads become customers, ops run themselves.
           </p>
+          <a
+            href="/contact"
+            className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D7B46A] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_14px_40px_rgba(215,180,106,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_55px_rgba(215,180,106,0.28)]"
+          >
+            Start building
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
 
         <motion.div
@@ -224,12 +229,13 @@ export const PartnersMarquee = () => {
                   scale: { duration: 0.45, delay: index * 0.08 },
                   y: { duration: 5 + index * 0.4, repeat: Infinity, ease: "easeInOut" },
                 }}
-                className={`absolute hidden h-24 w-24 place-items-center rounded-2xl bg-white/[0.035] shadow-[0_18px_55px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur md:grid ${signal.className}`}
+                className={`absolute h-[6.5rem] w-24 place-items-center rounded-2xl bg-white/[0.035] shadow-[0_18px_55px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur ${signal.mobile ? "grid" : "hidden md:grid"} ${signal.className}`}
               >
                 <div className={signal.color}>
                   <SignalGlyph kind={signal.kind} />
                 </div>
-                <span className="mt-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/42">{signal.label}</span>
+                <span className="mt-1 text-[10px] font-black uppercase tracking-[0.16em] text-white/42">{signal.label}</span>
+                <span className="text-[9px] font-medium leading-none text-current opacity-60">{signal.outcome}</span>
               </motion.div>
             ))}
 
@@ -251,14 +257,24 @@ export const PartnersMarquee = () => {
               <div className="overflow-hidden rounded-xl bg-[linear-gradient(135deg,rgba(215,180,106,0.24),rgba(96,230,210,0.14)_48%,rgba(142,124,255,0.18))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
                 <div className="grid gap-5 md:grid-cols-[1.05fr_0.95fr]">
                   <div>
-                    <span className="block h-3 w-28 rounded-full bg-white/44" />
-                    <span className="mt-8 block h-8 w-4/5 rounded-md bg-white/82" />
-                    <span className="mt-3 block h-8 w-3/5 rounded-md bg-white/52" />
-                    <span className="mt-8 block h-10 w-32 rounded-md bg-[#D7B46A]" />
+                    <span className="block text-[10px] font-black uppercase tracking-[0.18em] text-white/38">ibdadev.com</span>
+                    <p className="mt-4 text-2xl font-black uppercase leading-tight text-white/88 md:text-3xl">Book a<br />Discovery Call</p>
+                    <p className="mt-2 text-xs font-medium text-white/50">AI-connected business systems</p>
+                    <span className="mt-6 inline-flex items-center gap-2 bg-[#D7B46A] px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.12em] text-black">
+                      Get Started →
+                    </span>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    {[0, 1, 2, 3].map((item) => (
-                      <span key={item} className="min-h-24 rounded-lg bg-black/22 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
+                    {[
+                      { value: "47", label: "Leads" },
+                      { value: "12", label: "Automations" },
+                      { value: "3.2×", label: "ROI" },
+                      { value: "Live", label: "Systems" },
+                    ].map((metric) => (
+                      <span key={metric.label} className="flex min-h-24 flex-col items-center justify-center rounded-lg bg-black/22 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                        <span className="text-xl font-black text-white/80">{metric.value}</span>
+                        <span className="mt-1 text-[9px] font-black uppercase tracking-[0.14em] text-white/38">{metric.label}</span>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -271,12 +287,13 @@ export const PartnersMarquee = () => {
               className="absolute bottom-10 right-[9%] z-30 w-40 rounded-[1.35rem] bg-[#171512]/94 p-3 shadow-[0_26px_90px_rgba(0,0,0,0.52),inset_0_0_0_1px_rgba(255,255,255,0.08)] md:w-48"
             >
               <div className="rounded-[1rem] bg-black/42 p-3">
-                <span className="block h-24 rounded-lg bg-[linear-gradient(135deg,rgba(96,230,210,0.30),rgba(215,180,106,0.18))]" />
+                <p className="mb-2 text-[9px] font-black uppercase tracking-[0.18em] text-white/34">Mobile App</p>
+                <span className="block h-20 rounded-lg bg-[linear-gradient(135deg,rgba(96,230,210,0.30),rgba(215,180,106,0.18))]" />
                 <span className="mt-3 block h-2 w-4/5 rounded-full bg-white/20" />
                 <span className="mt-2 block h-2 w-3/5 rounded-full bg-white/14" />
                 <div className="mt-4 grid grid-cols-2 gap-2">
-                  <span className="h-10 rounded-md bg-white/[0.035]" />
-                  <span className="h-10 rounded-md bg-white/[0.035]" />
+                  <span className="flex h-10 items-center justify-center rounded-md bg-white/[0.035] text-[8px] font-black uppercase tracking-wide text-white/30">Book</span>
+                  <span className="flex h-10 items-center justify-center rounded-md bg-white/[0.035] text-[8px] font-black uppercase tracking-wide text-white/30">Track</span>
                 </div>
               </div>
             </motion.div>
@@ -286,6 +303,7 @@ export const PartnersMarquee = () => {
               transition={shouldReduceMotion ? undefined : { duration: 6.8, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-14 left-[9%] z-30 hidden w-56 rounded-2xl bg-[#11100E]/90 p-4 shadow-[0_22px_80px_rgba(0,0,0,0.46),inset_0_0_0_1px_rgba(215,180,106,0.10)] md:block"
             >
+              <p className="mb-3 text-[9px] font-black uppercase tracking-[0.18em] text-white/34">Lead Growth</p>
               <div className="flex items-end gap-2">
                 {[34, 58, 45, 76, 63].map((height, index) => (
                   <span
