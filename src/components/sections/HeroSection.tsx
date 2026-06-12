@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import gsap from "gsap";
+import { HeroCanvasDynamic } from "@/components/three/HeroCanvasDynamic";
 
 const flowPoints = [
   { label: "Need", value: "Mapped", x: "6%", y: "38%", color: "#D7B46A", delay: 0 },
@@ -153,8 +155,32 @@ const HeroTheater = () => {
 };
 
 export const HeroSection = () => {
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  useLayoutEffect(() => {
+    if (shouldReduceMotion || !headlineRef.current) return;
+
+    const words = headlineRef.current.querySelectorAll(".hero-word");
+    gsap.fromTo(
+      words,
+      { y: "105%", opacity: 0 },
+      {
+        y: "0%",
+        opacity: 1,
+        duration: 0.65,
+        ease: "power3.out",
+        stagger: 0.08,
+        delay: 0.15,
+      }
+    );
+  }, [shouldReduceMotion]);
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-transparent px-6 pb-12 pt-28 md:pb-16">
+      {/* WebGL Canvas — behind everything */}
+      <HeroCanvasDynamic />
+
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ibda-gold/40 to-transparent" />
       <div className="absolute right-[-14vw] top-20 hidden h-[48vw] max-h-[660px] w-[48vw] max-w-[660px] bg-[radial-gradient(circle,rgba(96,230,210,0.10),transparent_58%)] md:block" />
       <div className="absolute left-[-16vw] bottom-[-10vw] hidden h-[40vw] max-h-[520px] w-[40vw] max-w-[520px] bg-[radial-gradient(circle,rgba(142,124,255,0.09),transparent_62%)] lg:block" />
@@ -170,15 +196,23 @@ export const HeroSection = () => {
             AI / SaaS / web / mobile / automation
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.58, delay: 0.12 }}
+          {/* Headline with per-word clip-mask reveal */}
+          <h1
+            ref={headlineRef}
             className="max-w-4xl text-5xl font-black leading-[0.88] tracking-normal sm:text-6xl md:text-7xl lg:text-8xl"
           >
-            <span className="block">Build the tools.</span>
-            <span className="block">Run the business.</span>
-          </motion.h1>
+            {["Build", "the", "tools."].map((word) => (
+              <span key={word} className="mr-[0.22em] inline-block overflow-hidden">
+                <span className="hero-word inline-block">{word}</span>
+              </span>
+            ))}
+            <br />
+            {["Run", "the", "business."].map((word) => (
+              <span key={word} className="mr-[0.22em] inline-block overflow-hidden">
+                <span className="hero-word inline-block">{word}</span>
+              </span>
+            ))}
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -200,9 +234,7 @@ export const HeroSection = () => {
             </a>
             <a href="/#services" className="group inline-flex items-center gap-3 py-4 text-sm font-black uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-ibda-gold">
               See services
-              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
-                -&gt;
-              </span>
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
             </a>
           </motion.div>
         </div>

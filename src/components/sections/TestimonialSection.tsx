@@ -3,6 +3,8 @@
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useReveal } from "@/hooks/useReveal";
+import { useReducedMotion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +16,8 @@ const proofSignals = [
 
 export const TestimonialSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [revealRef, isVisible] = useReveal();
+  const shouldReduceMotion = useReducedMotion();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,7 +42,16 @@ export const TestimonialSection = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
       <div className="container mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
-        <div className="client-proof">
+        <div
+          ref={revealRef as React.RefObject<HTMLDivElement>}
+          className={`client-proof transition-all duration-700 ease-out ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : shouldReduceMotion
+                ? "opacity-100"
+                : "opacity-0 translate-y-10"
+          }`}
+        >
           <span className="mb-5 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">Client proof</span>
           <h2 className="max-w-xl text-4xl font-black leading-[0.96] tracking-normal text-white md:text-6xl">
             The work has to make the business easier to explain.

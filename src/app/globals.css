@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, [role="button"] {
+    cursor: none;
+  }
+}
+
 :root {
   --background: #050505;
   --foreground: #ffffff;
@@ -104,4 +113,48 @@ section {
     linear-gradient(90deg, rgba(215, 180, 106, 0.08) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+.services-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+@keyframes aurora-shift {
+  0%   { background-position: 52% 46%; }
+  33%  { background-position: 68% 38%; }
+  66%  { background-position: 40% 58%; }
+  100% { background-position: 52% 46%; }
+}
+
+.aurora-blob {
+  background: radial-gradient(
+    circle at 52% 46%,
+    rgba(215,180,106,0.14) 0%,
+    rgba(142,124,255,0.10) 38%,
+    rgba(96,230,210,0.08) 62%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  animation: aurora-shift 8s ease-in-out infinite;
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
 
 const gates = ["Message", "Offer", "Speed", "Mobile", "Handoff"];
 
@@ -25,6 +25,26 @@ const promises = [
 
 const LaunchGauge = () => {
   const shouldReduceMotion = useReducedMotion();
+  const countRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(countRef, { once: true, margin: "-100px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let frame: number;
+    const start = performance.now();
+    const duration = 1200;
+
+    const animate = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * 5));
+      if (progress < 1) frame = requestAnimationFrame(animate);
+    };
+
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [isInView]);
 
   return (
     <div className="relative min-h-[420px] overflow-hidden rounded-xl bg-[#0C0B09] p-7 shadow-[0_36px_120px_rgba(0,0,0,0.4)] md:min-h-[520px] md:p-10">
@@ -76,12 +96,13 @@ const LaunchGauge = () => {
 
           <div className="absolute inset-0 grid place-items-center text-center">
             <motion.div
+              ref={countRef}
               animate={shouldReduceMotion ? undefined : { scale: [1, 1.035, 1] }}
               transition={shouldReduceMotion ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="grid h-44 w-44 place-items-center rounded-full bg-[#080706] shadow-[0_28px_90px_rgba(0,0,0,0.55),inset_0_0_0_1px_rgba(255,255,255,0.12)]"
             >
               <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-white/34">Quality</span>
-              <span className="block text-6xl font-black leading-none text-white">5/5</span>
+              <span className="block text-6xl font-black leading-none text-white">{count}/5</span>
             </motion.div>
           </div>
         </div>

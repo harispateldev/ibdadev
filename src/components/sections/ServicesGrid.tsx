@@ -59,7 +59,7 @@ const SignalMap = ({ active }: { active: number }) => {
   return (
     <div className="relative min-h-[360px] overflow-hidden rounded-xl bg-[#0D0C0A] p-7 shadow-[0_34px_110px_rgba(0,0,0,0.38)] md:min-h-[420px] md:p-9">
       <div
-        className="absolute inset-0 opacity-80"
+        className="absolute inset-0 opacity-80 services-glow"
         style={{ background: `radial-gradient(circle at 54% 45%, ${current.glow}, transparent 18rem)` }}
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:52px_52px] opacity-35" />
@@ -76,15 +76,18 @@ const SignalMap = ({ active }: { active: number }) => {
           <svg viewBox="0 0 280 250" className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
             {capabilities.map((item, index) => (
               <motion.path
-                key={item.title}
+                key={index === active ? `active-${item.title}` : item.title}
                 d={item.path}
                 fill="none"
                 stroke={index === active ? item.color : "rgba(255,255,255,0.13)"}
                 strokeWidth={index === active ? 4 : 1.6}
                 strokeLinecap="round"
-                initial={false}
-                animate={{ opacity: index === active ? 1 : 0.42 }}
-                transition={{ duration: 0.35 }}
+                initial={index === active ? { pathLength: 0, opacity: 0 } : false}
+                animate={{
+                  pathLength: 1,
+                  opacity: index === active ? 1 : 0.42,
+                }}
+                transition={{ duration: 0.55, ease: "easeOut" }}
               />
             ))}
           </svg>

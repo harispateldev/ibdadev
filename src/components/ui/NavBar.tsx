@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
+import { MagneticWrapper } from "./MagneticWrapper";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -60,12 +61,14 @@ export const NavBar = () => {
   
       {/* CTA Button - Far Right Corner (Outside the pill) */}
       <div className="flex-1 flex justify-end pointer-events-auto">
-        <Link 
-          href="/work#start-project" 
-          className="accent-pill px-8 py-3.5 rounded-full text-white font-black text-sm transition-all duration-300 hover:brightness-110 active:scale-95"
-        >
-          Start a Project
-        </Link>
+        <MagneticWrapper>
+          <Link
+            href="/work#start-project"
+            className="accent-pill px-8 py-3.5 rounded-full text-white font-black text-sm transition-all duration-300 hover:brightness-110 active:scale-95"
+          >
+            Start a Project
+          </Link>
+        </MagneticWrapper>
       </div>
     </div>
   );

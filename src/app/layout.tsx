@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 
 import { NavBar } from "@/components/ui/NavBar";
 import { FooterSection } from "@/components/sections/FooterSection";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} antialiased bg-ibda-bg text-white`}>
+        <CustomCursor />
         <SmoothScroll>
           <NavBar />
           {children}

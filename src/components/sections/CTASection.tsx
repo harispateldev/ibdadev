@@ -3,6 +3,7 @@
 import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MagneticWrapper } from "@/components/ui/MagneticWrapper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +30,7 @@ export const CTASection = () => {
   return (
     <section ref={sectionRef} className="relative overflow-hidden border-t border-ibda-border bg-ibda-bg py-48">
       <div className="absolute inset-0 z-0 theme-grid opacity-30" />
+      <div className="aurora-blob absolute inset-0 z-0" aria-hidden="true" />
       <div className="container mx-auto px-6 relative z-10 text-center">
         <div className="cta-content max-w-4xl mx-auto">
           <h2 className="mb-10 text-5xl font-black leading-[0.95] tracking-normal md:text-8xl">
@@ -52,12 +54,16 @@ export const CTASection = () => {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a href="/work#start-project" className="w-full rounded-full bg-[#D7B46A] px-12 py-6 text-xl font-black text-[#050505] shadow-[0_20px_60px_rgba(215,180,106,0.24)] transition-all hover:-translate-y-0.5 active:scale-95 md:w-auto">
-              Start a Project
-            </a>
-            <a href="/about" className="w-full rounded-full border border-ibda-border bg-white/5 px-12 py-6 text-xl font-black text-white transition-all hover:bg-white/10 md:w-auto">
-              See the process
-            </a>
+            <MagneticWrapper>
+              <a href="/work#start-project" className="w-full rounded-full bg-[#D7B46A] px-12 py-6 text-xl font-black text-[#050505] shadow-[0_20px_60px_rgba(215,180,106,0.24)] transition-all hover:-translate-y-0.5 active:scale-95 md:w-auto">
+                Start a Project
+              </a>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <a href="/about" className="w-full rounded-full border border-ibda-border bg-white/5 px-12 py-6 text-xl font-black text-white transition-all hover:bg-white/10 md:w-auto">
+                See the process
+              </a>
+            </MagneticWrapper>
           </div>
         </div>
       </div>

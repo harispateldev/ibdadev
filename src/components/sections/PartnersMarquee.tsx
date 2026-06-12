@@ -302,7 +302,7 @@ export const PartnersMarquee = () => {
           </div>
         </motion.div>
 
-        <div className="mt-8 overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+        <div className="marquee-fade mt-8 overflow-hidden py-6">
           <motion.div
             animate={shouldReduceMotion ? undefined : { x: ["0%", "-50%"] }}
             transition={shouldReduceMotion ? undefined : { duration: 26, repeat: Infinity, ease: "linear" }}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useReveal } from "@/hooks/useReveal";
 
 type Proof = {
   mark: string;
@@ -119,6 +120,9 @@ const ProofSignal = ({ proof, index }: { proof: Proof; index: number }) => {
 };
 
 export const WorksSection = () => {
+  const [revealRef, isVisible] = useReveal();
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="selected-systems" className="relative overflow-hidden bg-[#050505] px-6 py-24 md:py-32">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
@@ -127,7 +131,16 @@ export const WorksSection = () => {
 
       <div className="container relative z-10 mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
-          <div>
+          <div
+            ref={revealRef as React.RefObject<HTMLDivElement>}
+            className={`transition-all duration-700 ease-out ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : shouldReduceMotion
+                  ? "opacity-100"
+                  : "opacity-0 translate-y-10"
+            }`}
+          >
             <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">Selected work</p>
             <h2 className="max-w-5xl text-5xl font-black leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
               Make the result visible.
