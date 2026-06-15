@@ -85,10 +85,10 @@ const standards = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#050505] px-6 pt-24 text-white">
+    <main className="min-h-screen overflow-x-hidden bg-[#050505] px-6 pt-20 text-white">
 
       {/* ── Hero ── */}
-      <section className="container mx-auto grid max-w-7xl gap-10 pb-12 pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <section className="container mx-auto grid max-w-7xl gap-8 pb-8 pt-2 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
 
         {/* Left: headline + human statement */}
         <motion.div
@@ -140,7 +140,7 @@ export default function AboutPage() {
 
       {/* ── Operating principles ── */}
       <section className="border-y border-white/[0.08]">
-        <div className="container mx-auto grid max-w-7xl gap-5 py-14 md:grid-cols-3">
+        <div className="container mx-auto grid max-w-7xl gap-5 py-10 md:grid-cols-3">
           {operatingModel.map((item, index) => (
             <motion.article
               key={item.label}
@@ -151,7 +151,7 @@ export default function AboutPage() {
               className="rounded-lg border border-white/[0.10] bg-white/[0.030] p-6"
             >
               {/* Reduced mb-10 → mb-6: the previous value left too much dead space */}
-              <span className="mb-6 block text-sm font-black text-[#D7B46A]">{item.label}</span>
+              <span className="mb-4 block text-sm font-black text-[#D7B46A]">{item.label}</span>
               <h2 className="text-2xl font-black tracking-normal text-white">{item.title}</h2>
               <p className="mt-4 text-[0.9375rem] leading-relaxed text-white/54">{item.body}</p>
             </motion.article>
@@ -165,7 +165,7 @@ export default function AboutPage() {
       <section className="border-b border-white/[0.08]">
         <div className="container mx-auto grid max-w-7xl gap-px bg-white/[0.055] sm:grid-cols-3">
           {proofStats.map((item) => (
-            <div key={item.stat} className="bg-[#050505] px-8 py-10">
+            <div key={item.stat} className="bg-[#050505] px-7 py-7">
               <p className="text-4xl font-black text-[#D7B46A] md:text-5xl">{item.stat}</p>
               <p className="mt-2 text-sm font-bold text-white/68">{item.label}</p>
               <p className="mt-0.5 text-[11px] text-white/28">{item.sub}</p>
@@ -175,9 +175,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Delivery model ── */}
-      <section className="container mx-auto grid max-w-7xl gap-8 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <section className="container mx-auto grid max-w-7xl gap-8 py-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div className="lg:sticky lg:top-28">
-          <span className="mb-5 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">
+          <span className="mb-3 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">
             Delivery model
           </span>
           {/* Flipped to lead with the positive: "complete path" first, "not random tasks" second */}
@@ -209,7 +209,7 @@ export default function AboutPage() {
       {/* ── Standards ── */}
       <section className="container mx-auto max-w-7xl">
         <div className="rounded-lg border border-white/[0.10] bg-white/[0.026] p-6 md:p-9">
-          <div className="mb-8 grid gap-4 md:grid-cols-[0.62fr_0.38fr] md:items-end">
+          <div className="mb-6 grid gap-4 md:grid-cols-[0.62fr_0.38fr] md:items-end">
             <h2 className="text-3xl font-black tracking-normal text-white md:text-5xl">
               Standards we protect
             </h2>
@@ -234,7 +234,7 @@ export default function AboutPage() {
       {/* ── Closing row ── */}
       {/* Answers "now what?" — every page needs a next step.     */}
       {/* Not a hard CTA (CTASection handles that) — a handshake. */}
-      <section className="container mx-auto mt-6 max-w-7xl border-t border-white/[0.06] pb-14 pt-10">
+      <section className="container mx-auto mt-4 max-w-7xl border-t border-white/[0.06] pb-10 pt-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xl font-black text-white/82">
