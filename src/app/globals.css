@@ -26,7 +26,7 @@ body {
     radial-gradient(circle at 88% 18%, rgba(142, 124, 255, 0.10), transparent 24rem),
     linear-gradient(180deg, #050505 0%, #090806 44%, #050505 100%);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 canvas {

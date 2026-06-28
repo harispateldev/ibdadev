@@ -11,7 +11,7 @@ import { CTASection } from "@/components/sections/CTASection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen text-white overflow-x-hidden bg-ibda-bg">
+    <main className="relative min-h-screen overflow-x-clip text-white bg-ibda-bg">
       <div className="theme-grid fixed inset-0 z-0 pointer-events-none opacity-40" />
 
       {/* Hero Section */}

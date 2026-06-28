@@ -1,273 +1,242 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-// ── Data ─────────────────────────────────────────────────────────────────────
+const reveal = (delay = 0) => ({
+  initial: { opacity: 0, y: 22 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.58, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
 
-// Replaced {Strategy, Interface, Motion, Launch} with outcome-framed language.
-// A founder reads "Conversion design" and understands the business intent.
-// They read "Interface" and have to guess.
-const capabilities = [
+const scrollReveal = (delay = 0) => ({
+  initial: { opacity: 0, y: 22 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.58, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
+
+const systems = [
   {
-    label: "Clear positioning",
-    note:  "Audience, offer, and proof defined before any design starts",
+    title: "Senior-led",
+    body: "Direct access to the people shaping the build.",
+    signal: "Trust",
+    accent: "#D7B46A",
+    surface: "from-[rgba(215,180,106,0.18)] via-[#13110D] to-[#0D0C0A]",
   },
   {
-    label: "Conversion design",
-    note:  "Interfaces that explain the business and guide visitors to act",
+    title: "First release clear",
+    body: "The launch version is defined before we design deep.",
+    signal: "Ship",
+    accent: "#60E6D2",
+    surface: "from-[rgba(96,230,210,0.16)] via-[#0D1412] to-[#0D0C0A]",
   },
   {
-    label: "Scalable systems",
-    note:  "Components and patterns built to run without us",
-  },
-  {
-    label: "Launch support",
-    note:  "Tested, documented, and handed over clean",
+    title: "Built to keep running",
+    body: "Automation, tracking, and handoff are part of the build.",
+    signal: "Run",
+    accent: "#F06A3D",
+    surface: "from-[rgba(240,106,61,0.16)] via-[#170F0B] to-[#0D0C0A]",
   },
 ];
 
-const operatingModel = [
-  {
-    label: "01",
-    title: "Positioning first",
-    body:  "We clarify the audience, offer, proof, and conversion path before visual exploration starts.",
-  },
-  {
-    label: "02",
-    title: "Designed as a system",
-    body:  "Pages, sections, states, and motion rules are built to be reused — not recreated every time content changes.",
-  },
-  {
-    label: "03",
-    title: "Shipped with restraint",
-    body:  "Rich details are kept lightweight. Motion supports comprehension, performance, and accessibility.",
-  },
+const roles = [
+  ["Business", "Right problem", "#D7B46A"],
+  ["Offer", "Clear value", "#60E6D2"],
+  ["Workflow", "Less friction", "#8E7CFF"],
+  ["Interface", "Premium feel", "#D7B46A"],
+  ["Speed", "Fast pages", "#60E6D2"],
+  ["AI fit", "Useful automation", "#8E7CFF"],
+  ["Handoff", "Team-ready", "#F06A3D"],
 ];
 
-// Proof stats: trust bridge between "we have principles" and "here's evidence"
-const proofStats = [
-  { stat: "50+",   label: "Projects delivered",    sub: "Same process every time" },
-  { stat: "100%",  label: "Handoffs documented",   sub: "Nothing ships without it" },
-  { stat: "2 wks", label: "Brief to first designs", sub: "Every project"           },
-];
+const problemSignals = ["Lost leads", "Manual work", "Scattered tools"];
+const shippedSignals = ["AI tool", "Dashboard", "Web app", "Automation"];
 
-// Each role now has its own specific description.
-// The previous version used identical copy across all four — a trust signal failure.
-const deliveryRoles = [
-  {
-    title: "Strategy and offer architecture",
-    body:  "We map audience, offer, proof, and objections before a layout is touched. Revisions happen in writing, not in production.",
-  },
-  {
-    title: "Brand direction and interface design",
-    body:  "Identity and interface built as one system — typography, colour, components, and states designed to scale.",
-  },
-  {
-    title: "Frontend engineering and motion",
-    body:  "Production-grade code, optimised for performance and accessibility. Motion supports comprehension — never decoration.",
-  },
-  {
-    title: "QA, analytics, and launch handoff",
-    body:  "Everything is tested and documented before it ships. Your team runs it from day one — no follow-up calls needed.",
-  },
-];
+const HeroStory = () => {
+  const shouldReduceMotion = useReducedMotion();
 
-// Reordered so the final standard reads as a guarantee, not a restriction
-const standards = [
-  "No template-first layouts",
-  "No decorative motion without a conversion reason",
-  "No motion that blocks reading or speed",
-  "Nothing ships without QA, content rules, and a documented handoff",
-];
+  return (
+    <motion.div {...reveal(0.18)} className="relative min-h-[430px] w-full [perspective:1200px] md:min-h-[500px] lg:min-h-[520px]" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(215,180,106,0.18),transparent_18rem),radial-gradient(circle_at_76%_58%,rgba(96,230,210,0.18),transparent_20rem),radial-gradient(circle_at_60%_20%,rgba(142,124,255,0.12),transparent_18rem)]" />
 
-// ── Page ─────────────────────────────────────────────────────────────────────
+      <motion.div
+        animate={shouldReduceMotion ? undefined : { rotateX: [54, 51, 54], rotateZ: [-8, -6, -8], y: [0, -8, 0] }}
+        transition={shouldReduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-[7%] top-[10%] h-[64%] w-[86%] rounded-[1.6rem] bg-[linear-gradient(135deg,rgba(215,180,106,0.18),rgba(96,230,210,0.07)_45%,rgba(142,124,255,0.10))] shadow-[0_54px_150px_rgba(0,0,0,0.55),0_0_110px_rgba(96,230,210,0.16),inset_0_0_0_1px_rgba(255,255,255,0.13)] [transform:rotateX(54deg)_rotateZ(-8deg)]"
+      >
+        <div className="absolute inset-0 overflow-hidden rounded-[2rem]">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:64px_64px]" />
+          <div className="absolute inset-x-10 top-10 h-1 bg-gradient-to-r from-[#D7B46A] via-[#60E6D2] to-[#8E7CFF]" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        animate={shouldReduceMotion ? undefined : { rotateY: [-16, -13, -16], rotateX: [7, 9, 7], y: [0, -9, 0] }}
+        transition={shouldReduceMotion ? undefined : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-1/2 top-[45%] h-[72%] w-[90%] max-w-[650px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.6rem] bg-[#0D0C0A]/92 p-6 shadow-[0_38px_130px_rgba(0,0,0,0.58),0_0_90px_rgba(215,180,106,0.08),inset_0_0_0_1px_rgba(255,255,255,0.15)] [transform:rotateY(-16deg)_rotateX(7deg)]"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_56%,rgba(215,180,106,0.20),transparent_12rem),radial-gradient(circle_at_84%_60%,rgba(96,230,210,0.20),transparent_13rem),radial-gradient(circle_at_54%_45%,rgba(142,124,255,0.14),transparent_11rem)]" />
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.28em] text-white/32">Client delivery model</p>
+            <p className="mt-3 text-4xl font-black uppercase leading-none text-white/90 md:text-4xl lg:text-5xl">Problem to launch</p>
+          </div>
+          <span className="bg-[#D7B46A] px-3 py-2 text-[10px] font-black uppercase tracking-[0.14em] text-black">
+            Senior led
+          </span>
+        </div>
+
+        <div className="relative z-10 mt-6 grid grid-cols-[0.9fr_0.38fr_0.9fr] items-center gap-3">
+          <div className="bg-[linear-gradient(135deg,rgba(240,106,61,0.15),rgba(0,0,0,0.36))] p-3 shadow-[inset_0_0_0_1px_rgba(240,106,61,0.16)]">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Before</p>
+            <p className="mt-2 text-2xl font-black uppercase leading-none text-white/86">Messy workflow</p>
+            <div className="mt-4 grid gap-1.5">
+              {problemSignals.map((item) => (
+                <span key={item} className="bg-white/[0.055] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-white/46">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid place-items-center">
+            <motion.div
+              animate={shouldReduceMotion ? undefined : { scale: [1, 1.06, 1] }}
+              transition={shouldReduceMotion ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="grid h-20 w-20 place-items-center rounded-full bg-[#D7B46A] text-center text-black shadow-[0_0_70px_rgba(215,180,106,0.24)]"
+            >
+              <span className="text-[10px] font-black uppercase leading-tight tracking-[0.12em]">IbdaDev<br />builds</span>
+            </motion.div>
+          </div>
+
+          <div className="bg-[linear-gradient(135deg,rgba(96,230,210,0.16),rgba(0,0,0,0.34))] p-3 shadow-[inset_0_0_0_1px_rgba(96,230,210,0.16)]">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">After</p>
+            <p className="mt-2 text-2xl font-black uppercase leading-none text-[#60E6D2]">Live system</p>
+            <div className="mt-4 grid grid-cols-2 gap-1.5">
+              {shippedSignals.map((item) => (
+                <span key={item} className="bg-white/[0.055] px-2 py-1.5 text-center text-[10px] font-black uppercase tracking-[0.1em] text-white/52">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </motion.div>
+    </motion.div>
+  );
+};
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#050505] px-6 pt-20 text-white">
-
-      {/* ── Hero ── */}
-      <section className="container mx-auto grid max-w-7xl gap-8 pb-8 pt-2 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-
-        {/* Left: headline + human statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-        >
-          <span className="mb-6 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">
-            About IbdaDev
-          </span>
-          <h1 className="text-5xl font-black leading-[0.9] tracking-normal md:text-7xl lg:text-8xl">
-            A small agency built for serious digital systems.
-          </h1>
-          {/* The human statement that answers "why small?" — builds trust instantly */}
-          <p className="mt-7 max-w-sm text-[0.9375rem] font-medium leading-relaxed text-white/38">
-            We stay intentionally small so the people you hire are the people doing the work.
-          </p>
-        </motion.div>
-
-        {/* Right: supporting explanation + outcome-framed capability list */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.12 }}
-          className="lg:pt-2"
-        >
-          <p className="text-xl leading-relaxed text-white/60">
-            IbdaDev works with founders and teams who need their website, interface, or brand system
-            to explain the business clearly, feel premium, and survive real launch constraints.
-          </p>
-
-          {/* Capability list — outcome language replaces discipline labels */}
-          <ul className="mt-8 flex flex-col gap-2">
-            {capabilities.map((cap) => (
-              <li
-                key={cap.label}
-                className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-white/[0.026] px-4 py-3.5"
-              >
-                <span className="mt-[5px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#D7B46A]/65" />
-                <div>
-                  <span className="block text-sm font-black text-white/82">{cap.label}</span>
-                  <span className="mt-0.5 block text-[11px] leading-snug text-white/32">{cap.note}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </section>
-
-      {/* ── Operating principles ── */}
-      <section className="border-y border-white/[0.08]">
-        <div className="container mx-auto grid max-w-7xl gap-5 py-10 md:grid-cols-3">
-          {operatingModel.map((item, index) => (
-            <motion.article
-              key={item.label}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.52, delay: index * 0.09 }}
-              className="rounded-lg border border-white/[0.10] bg-white/[0.030] p-6"
+    <main className="min-h-screen overflow-x-hidden bg-ibda-bg px-6 pb-16 pt-28 text-white">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_12%_22%,rgba(215,180,106,0.10),transparent_24rem),radial-gradient(circle_at_88%_28%,rgba(96,230,210,0.10),transparent_24rem),radial-gradient(circle_at_62%_78%,rgba(142,124,255,0.08),transparent_28rem)]" />
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid items-center gap-10 pb-12 md:pb-16 lg:grid-cols-[0.92fr_1.08fr] lg:pb-16">
+          <div>
+            <motion.p
+              {...reveal(0)}
+              className="mb-7 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold"
             >
-              {/* Reduced mb-10 → mb-6: the previous value left too much dead space */}
-              <span className="mb-4 block text-sm font-black text-[#D7B46A]">{item.label}</span>
-              <h2 className="text-2xl font-black tracking-normal text-white">{item.title}</h2>
-              <p className="mt-4 text-[0.9375rem] leading-relaxed text-white/54">{item.body}</p>
-            </motion.article>
-          ))}
-        </div>
-      </section>
+              About IbdaDev
+            </motion.p>
 
-      {/* ── Proof stats ── */}
-      {/* Trust bridge: answers "why should I believe those principles?" */}
-      {/* Positioned between principles and delivery — validates the claims above */}
-      <section className="border-b border-white/[0.08]">
-        <div className="container mx-auto grid max-w-7xl gap-px bg-white/[0.055] sm:grid-cols-3">
-          {proofStats.map((item) => (
-            <div key={item.stat} className="bg-[#050505] px-7 py-7">
-              <p className="text-4xl font-black text-[#D7B46A] md:text-5xl">{item.stat}</p>
-              <p className="mt-2 text-sm font-bold text-white/68">{item.label}</p>
-              <p className="mt-0.5 text-[11px] text-white/28">{item.sub}</p>
+            <motion.h1
+              {...reveal(0.08)}
+              className="max-w-4xl text-5xl font-black leading-[0.9] tracking-normal md:text-7xl"
+            >
+              From problem to shipped system.
+            </motion.h1>
+
+            <motion.p
+              {...reveal(0.16)}
+              className="mt-7 max-w-lg text-base font-medium leading-relaxed text-white/56 md:text-xl"
+            >
+              Senior product studio for AI tools, apps, dashboards, automations, and websites.
+            </motion.p>
+
+            <motion.div
+              {...reveal(0.24)}
+              className="mt-8 flex flex-wrap gap-3 text-[11px] font-black uppercase tracking-[0.14em] text-white/44"
+            >
+              <span className="bg-[rgba(215,180,106,0.14)] px-3 py-2 text-[#D7B46A]">Senior-led</span>
+              <span className="bg-[rgba(96,230,210,0.12)] px-3 py-2 text-[#60E6D2]">Launch-ready</span>
+              <span className="bg-[rgba(142,124,255,0.14)] px-3 py-2 text-[#A99CFF]">Handoff built in</span>
+            </motion.div>
+          </div>
+
+          <HeroStory />
+        </div>
+
+        <motion.div
+          {...scrollReveal(0.04)}
+          className="mb-16 grid gap-3 md:grid-cols-3 lg:mb-20"
+        >
+          {systems.map((item) => (
+            <div key={item.title} className={`relative overflow-hidden bg-gradient-to-br ${item.surface} p-6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),0_28px_80px_rgba(0,0,0,0.22)] md:p-7`}>
+              <div className="absolute inset-x-0 top-0 h-1" style={{ backgroundColor: item.accent }} />
+              <p className="mb-6 text-xs font-black uppercase tracking-[0.24em]" style={{ color: item.accent }}>
+                {item.signal}
+              </p>
+              <h2 className="text-2xl font-black leading-none text-white">{item.title}</h2>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/58">{item.body}</p>
             </div>
           ))}
-        </div>
-      </section>
+        </motion.div>
 
-      {/* ── Delivery model ── */}
-      <section className="container mx-auto grid max-w-7xl gap-8 py-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-        <div className="lg:sticky lg:top-28">
-          <span className="mb-3 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">
-            Delivery model
-          </span>
-          {/* Flipped to lead with the positive: "complete path" first, "not random tasks" second */}
-          <h2 className="text-4xl font-black leading-[0.96] tracking-normal md:text-5xl">
-            You hire a complete path to launch — not a random set of tasks.
-          </h2>
-        </div>
-
-        <div className="space-y-3">
-          {deliveryRoles.map((role, index) => (
-            <motion.div
-              key={role.title}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.46, delay: index * 0.06 }}
-              className="grid gap-4 rounded-lg border border-white/[0.09] bg-[#080808] p-5 md:grid-cols-[auto_1fr]"
-            >
-              <span className="text-3xl font-black text-white/12 md:text-4xl">0{index + 1}</span>
-              <div>
-                <h3 className="text-xl font-black tracking-normal text-white">{role.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/48">{role.body}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Standards ── */}
-      <section className="container mx-auto max-w-7xl">
-        <div className="rounded-lg border border-white/[0.10] bg-white/[0.026] p-6 md:p-9">
-          <div className="mb-6 grid gap-4 md:grid-cols-[0.62fr_0.38fr] md:items-end">
-            <h2 className="text-3xl font-black tracking-normal text-white md:text-5xl">
-              Standards we protect
-            </h2>
-            <p className="text-sm leading-relaxed text-white/42">
-              These rules keep the work from becoming a pretty page that cannot sell, ship, or scale.
+        <div className="mb-16 grid gap-9 lg:mb-20 lg:grid-cols-[0.76fr_1.24fr]">
+          <motion.div {...scrollReveal(0)}>
+            <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
+              Seven launch checks
             </p>
-          </div>
-          <div className="grid gap-3 md:grid-cols-4">
-            {standards.map((standard, index) => (
-              <div
-                key={standard}
-                className="rounded-lg border border-white/[0.08] bg-[#050505] p-5"
+            <h2 className="max-w-xl text-4xl font-black leading-[0.94] text-white md:text-5xl">
+              Checked before customers see it.
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {roles.map(([role, value, color], index) => (
+              <motion.div
+                key={role}
+                {...scrollReveal(index * 0.03)}
+                className="bg-[#0D0C0A] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] transition-transform duration-300 hover:-translate-y-1 md:p-6"
               >
-                <span className="mb-4 block text-[10px] font-black text-[#D7B46A]">0{index + 1}</span>
-                <p className="text-sm font-bold leading-relaxed text-white/58">{standard}</p>
-              </div>
+                <p className="mb-5 text-[11px] font-black" style={{ color }}>0{index + 1}</p>
+                <h3 className="text-lg font-black uppercase tracking-normal text-white">{role}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/46">{value}</p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ── Closing row ── */}
-      {/* Answers "now what?" — every page needs a next step.     */}
-      {/* Not a hard CTA (CTASection handles that) — a handshake. */}
-      <section className="container mx-auto mt-4 max-w-7xl border-t border-white/[0.06] pb-10 pt-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <motion.div
+          {...scrollReveal(0.06)}
+          className="flex flex-col gap-7 bg-[linear-gradient(135deg,rgba(215,180,106,0.16),rgba(96,230,210,0.08)_45%,rgba(142,124,255,0.12))] p-7 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.10)] md:flex-row md:items-center md:justify-between md:p-8"
+        >
           <div>
-            <p className="text-xl font-black text-white/82">
-              See the work.
-            </p>
-            <p className="mt-1.5 text-sm text-white/34">
-              Every project runs the same process. Every handoff is documented.
+            <p className="text-2xl font-black text-white">Start with the problem. Leave with a first release.</p>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/42">
+              Tell us what is slowing the business down. We will shape the build path.
             </p>
           </div>
+
           <div className="flex flex-wrap gap-3">
             <a
-              href="/work"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/[0.10] bg-white/[0.038] px-5 py-3 text-sm font-black uppercase tracking-[0.10em] text-white/65 transition-colors hover:bg-white/[0.07] hover:text-white/85"
+              href="/work#start-project"
+              className="inline-flex items-center rounded-full bg-[#D7B46A] px-6 py-3.5 text-sm font-black text-ibda-bg shadow-[0_18px_45px_rgba(215,180,106,0.24)] transition-transform hover:-translate-y-0.5"
             >
-              Case studies
+              Start the Conversation
             </a>
             <a
-              href="/work#start-project"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#D7B46A]/28 bg-[#D7B46A]/[0.09] px-5 py-3 text-sm font-black uppercase tracking-[0.10em] text-[#D7B46A] transition-colors hover:border-[#D7B46A]/50 hover:bg-[#D7B46A]/[0.15]"
+              href="/work"
+              className="inline-flex items-center rounded-full bg-[#60E6D2]/14 px-6 py-3.5 text-sm font-black text-[#60E6D2] shadow-[inset_0_0_0_1px_rgba(96,230,210,0.20)] transition-transform hover:-translate-y-0.5"
             >
-              Start a project
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
-                <path
-                  d="M1.5 5.5h8M6 1.5l4 4-4 4"
-                  stroke="currentColor" strokeWidth="1.6"
-                  strokeLinecap="round" strokeLinejoin="round"
-                />
-              </svg>
+              See Work
             </a>
           </div>
-        </div>
-      </section>
-
+        </motion.div>
+      </div>
     </main>
   );
 }

@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Button } from "./Button";
-import { motion, AnimatePresence } from "framer-motion";
 import { MagneticWrapper } from "./MagneticWrapper";
 
 const navLinks = [
@@ -15,6 +14,7 @@ const navLinks = [
 
 export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,15 +47,28 @@ export const NavBar = () => {
   
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8 px-4 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-white/50 hover:text-white transition-all duration-300 relative group py-2"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "relative rounded-full px-3 py-2 transition-all duration-300",
+                  isActive
+                    ? "bg-[#D7B46A]/14 text-[#D7B46A] shadow-[inset_0_0_0_1px_rgba(215,180,106,0.22)]"
+                    : "text-white/50 hover:bg-white/[0.055] hover:text-white"
+                )}
+              >
+                {link.name}
+                {isActive && (
+                  <span className="absolute inset-x-3 -bottom-1 h-px bg-[#D7B46A]" aria-hidden="true" />
+                )}
+              </Link>
+            );
+          })}
         </div>
       </nav>
   
