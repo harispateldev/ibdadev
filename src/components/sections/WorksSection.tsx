@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 type Work = {
   title: string;
@@ -188,69 +189,59 @@ const Preview = ({ work }: { work: Work }) => {
 };
 
 const WorkCard = ({ work, index }: { work: Work; index: number }) => {
-  const reduceMotion = useReducedMotion();
   const offset = index === 0 ? 0 : index === 1 ? -26 : index === 3 ? 26 : 0;
 
   return (
-    <motion.article
-      initial={reduceMotion ? false : { opacity: 0, y: 34, x: offset, scale: 0.97 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, x: 0, scale: 1 }}
-      whileHover={{ y: -6 }}
-      viewport={{ once: true, margin: "-90px" }}
-      transition={{ duration: 0.62, delay: index * 0.075, ease: [0.16, 1, 0.3, 1] }}
-      className={index === 0 ? "grid gap-5 lg:grid-cols-[0.52fr_0.48fr]" : "grid gap-5"}
-    >
-      <Preview work={work} />
-      <div className="brand-card flex flex-col justify-between rounded-[1.25rem] border border-white/[0.08] bg-[#0D0C0A] p-6 md:p-7">
-      <div>
-        <div className="mb-5 flex items-center justify-between gap-4">
-          <span className="text-[10px] font-black uppercase tracking-[0.22em]" style={{ color: work.accent }}>
-            {work.type}
-          </span>
-          <span className="text-[10px] font-black uppercase tracking-[0.16em] text-white/25">
-            0{index + 1}
-          </span>
+    <ScrollReveal direction={offset < 0 ? "left" : offset > 0 ? "right" : "up"} distance={48}>
+      <motion.article
+        whileHover={{ y: -6 }}
+        transition={{ duration: 0.24 }}
+        className={index === 0 ? "grid gap-5 lg:grid-cols-[0.52fr_0.48fr]" : "grid gap-5"}
+      >
+        <Preview work={work} />
+        <div className="brand-card flex flex-col justify-between rounded-[1.25rem] border border-white/[0.08] bg-[#0D0C0A] p-6 md:p-7">
+          <div>
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <span className="text-[10px] font-black uppercase tracking-[0.22em]" style={{ color: work.accent }}>
+                {work.type}
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.16em] text-white/25">
+                0{index + 1}
+              </span>
+            </div>
+            <h3 className="font-display text-4xl font-black leading-[0.92] text-white md:text-5xl">
+              {work.title}
+            </h3>
+            <p className="mt-5 max-w-md text-base font-semibold leading-relaxed text-white/58">
+              {work.statement}
+            </p>
+          </div>
+          <div className="mt-8">
+            <p className="mb-4 font-display text-2xl font-black" style={{ color: work.accent }}>
+              {work.metric}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {work.tags.map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-white/44">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-        <h3 className="font-display text-4xl font-black leading-[0.92] text-white md:text-5xl">
-          {work.title}
-        </h3>
-        <p className="mt-5 max-w-md text-base font-semibold leading-relaxed text-white/58">
-          {work.statement}
-        </p>
-      </div>
-      <div className="mt-8">
-        <p className="mb-4 font-display text-2xl font-black" style={{ color: work.accent }}>
-          {work.metric}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {work.tags.map((tag) => (
-            <span key={tag} className="rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-white/44">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-      </div>
-    </motion.article>
+      </motion.article>
+    </ScrollReveal>
   );
 };
 
 export const WorksSection = () => {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section id="selected-systems" className="relative overflow-hidden bg-[#050505] px-6 py-20 md:py-28">
       <div className="brand-texture opacity-[0.32]" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-11 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
-        >
+        <ScrollReveal className="mb-11 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
               Selected systems
@@ -266,7 +257,7 @@ export const WorksSection = () => {
             View all work
             <span aria-hidden="true">→</span>
           </a>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid gap-5">
           <WorkCard work={works[0]} index={0} />

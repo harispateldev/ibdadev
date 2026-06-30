@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const stats = [
   {
@@ -28,21 +29,13 @@ const promises = [
 ];
 
 export const StatsSection = () => {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section id="proof-discipline" className="relative overflow-hidden bg-[#0A0907] px-6 py-16 md:py-20">
       <div className="brand-texture opacity-[0.28]" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ibda-gold/20 to-transparent" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:items-end"
-        >
+        <ScrollReveal className="grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:items-end">
           <div>
             <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
               Proof
@@ -53,50 +46,41 @@ export const StatsSection = () => {
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             {stats.map((item, index) => (
-              <motion.div
+              <ScrollReveal
                 key={item.label}
-                initial={
-                  reduceMotion
-                    ? false
-                    : {
-                        opacity: 0,
-                        y: 24,
-                        x: index === 0 ? -22 : index === 2 ? 22 : 0,
-                        scale: 0.96,
-                      }
-                }
-                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, x: 0, scale: 1 }}
-                whileHover={{ y: -6, scale: 1.015 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.58, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="brand-card rounded-[1.2rem] border border-white/[0.08] bg-white/[0.035] p-5"
+                direction={index === 0 ? "left" : index === 2 ? "right" : "up"}
+                distance={38}
               >
-                <p className="font-display text-5xl font-black leading-none text-white md:text-6xl">
-                  {item.value}
-                </p>
-                <p className="mt-4 text-xs font-black uppercase tracking-[0.16em] text-ibda-gold">
-                  {item.label}
-                </p>
-                <p className="mt-3 text-sm font-semibold leading-relaxed text-white/45">
-                  {item.note}
-                </p>
-              </motion.div>
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.015 }}
+                  transition={{ duration: 0.24 }}
+                  className="brand-card h-full rounded-[1.2rem] border border-white/[0.08] bg-white/[0.035] p-5"
+                >
+                  <p className="font-display text-5xl font-black leading-none text-white md:text-6xl">
+                    {item.value}
+                  </p>
+                  <p className="mt-4 text-xs font-black uppercase tracking-[0.16em] text-ibda-gold">
+                    {item.label}
+                  </p>
+                  <p className="mt-3 text-sm font-semibold leading-relaxed text-white/45">
+                    {item.note}
+                  </p>
+                </motion.div>
+              </ScrollReveal>
             ))}
           </div>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           {promises.map((promise, index) => (
-            <motion.div
+            <ScrollReveal
               key={promise}
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-70px" }}
-              transition={{ duration: 0.42, delay: 0.16 + index * 0.05 }}
+              direction={index === 0 ? "left" : index === 2 ? "right" : "up"}
+              distance={30}
               className="rounded-full border border-white/[0.08] bg-[#050505]/70 px-5 py-4 text-center text-xs font-black uppercase tracking-[0.16em] text-white/52"
             >
               {promise}
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -28,7 +28,11 @@ Follow these rules for every new improvement:
 - Give every section a distinct concept. Do not repeat the same browser-window, dashboard card, or product-panel composition across the whole page.
 - Use smooth motion to explain state, progress, flow, hierarchy, or interaction: device float, live pulse, scan line, progress fill, reveal, hover depth, subtle parallax, or capability ribbons.
 - Motion must feel premium, not noisy. Keep animations calm, performant, responsive, and covered by reduced-motion support.
+- Scroll-section animation should be controlled by scroll progress where possible, not fast one-shot `whileInView` reveals that complete before the user feels the movement.
+- Keep looped loader/skeleton-style effects rare. Use them only when they communicate live system state, progress, or product activity.
 - Backgrounds can be rich, but they must not overpower the main message, section titles, service proof, or calls to action.
+- Keep the Work page reserved for real projects. Until real projects are ready, use clean empty project slots and do not invent fake case studies, project names, screenshots, or outcomes.
+- About and Work must match the main site quality, brand tone, and business-facing clarity.
 - Before finishing a visual change, verify desktop and mobile views for text fit, overlap, hierarchy, scroll feel, and whether the section story is obvious in one sentence.
 
 Decision test:

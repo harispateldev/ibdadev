@@ -192,11 +192,11 @@ section {
 }
 
 .animate-float {
-  animation: ibda-float 7s ease-in-out infinite;
+  animation: ibda-float 10s ease-in-out infinite;
 }
 
 .animate-float-small {
-  animation: ibda-float-small 5.8s ease-in-out infinite;
+  animation: ibda-float-small 8.5s ease-in-out infinite;
 }
 
 .screen-scan {
@@ -212,7 +212,7 @@ section {
   height: 30%;
   pointer-events: none;
   background: linear-gradient(180deg, transparent, rgba(215, 180, 106, 0.18), transparent);
-  animation: ibda-scan 4.8s ease-in-out infinite;
+  animation: ibda-scan 7.2s ease-in-out infinite;
 }
 
 .sheen-surface {
@@ -220,11 +220,11 @@ section {
     linear-gradient(110deg, transparent 0%, transparent 34%, rgba(255,255,255,0.18) 48%, transparent 62%, transparent 100%),
     var(--ibda-sheen-base, linear-gradient(135deg, #D7B46A, #F06A3D));
   background-size: 240% 100%, 100% 100%;
-  animation: ibda-shimmer 5.4s ease-in-out infinite;
+  animation: ibda-shimmer 8.4s ease-in-out infinite;
 }
 
 .live-pulse {
-  animation: ibda-pulse-ring 2.2s ease-in-out infinite;
+  animation: ibda-pulse-ring 3.2s ease-in-out infinite;
 }
 
 .motion-progress {
@@ -239,11 +239,11 @@ section {
   left: 0;
   width: 46%;
   background: linear-gradient(90deg, transparent, rgba(215, 180, 106, 0.48), transparent);
-  animation: ibda-progress 3.8s ease-in-out infinite;
+  animation: ibda-progress 7.4s ease-in-out infinite;
 }
 
 .motion-marquee {
-  animation: ibda-marquee 24s linear infinite;
+  animation: ibda-marquee 36s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

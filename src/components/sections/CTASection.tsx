@@ -1,26 +1,18 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { MagneticWrapper } from "@/components/ui/MagneticWrapper";
 import { BRAND } from "@/constants/brand";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const CTASection = () => {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section id="start-project" className="relative overflow-hidden border-t border-white/[0.08] bg-[#050505] px-6 py-20 md:py-28">
       <div className="brand-texture opacity-[0.5]" aria-hidden="true" />
       <div className="absolute inset-0 z-0 theme-grid opacity-25" />
 
       <div className="container relative z-10 mx-auto max-w-6xl">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 34, scale: 0.97 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center"
-        >
+        <ScrollReveal className="text-center" distance={58}>
           <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
             {BRAND.tagline}
           </p>
@@ -74,7 +66,7 @@ export const CTASection = () => {
               See work
             </a>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );

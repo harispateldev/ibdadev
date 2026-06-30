@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 type Service = {
   number: string;
@@ -172,21 +173,13 @@ const MiniSurface = ({ service }: { service: Service }) => {
 };
 
 export const ServicesGrid = () => {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section id="services" className="relative overflow-hidden bg-[#070706] px-6 py-20 md:py-28">
       <div className="brand-texture opacity-[0.38]" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-11 grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-end"
-        >
+        <ScrollReveal className="mb-11 grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-end">
           <div>
             <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
               What we build
@@ -198,46 +191,39 @@ export const ServicesGrid = () => {
           <p className="max-w-xl text-base font-semibold leading-relaxed text-white/52 lg:justify-self-end">
             We design and build the mobile apps, web platforms, AI systems, and operations tools a business needs to sell, serve, and scale.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
-            <motion.article
+            <ScrollReveal
               key={service.title}
-              initial={
-                reduceMotion
-                  ? false
-                  : {
-                      opacity: 0,
-                      y: 38,
-                      x: index % 3 === 0 ? -24 : index % 3 === 2 ? 24 : 0,
-                      scale: 0.96,
-                    }
-              }
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, x: 0, scale: 1 }}
-              whileHover={{ y: -8, scale: 1.01 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.62, delay: index * 0.055, ease: [0.16, 1, 0.3, 1] }}
-              className="brand-card group overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-[#0D0C0A] p-4 transition-colors duration-300 hover:border-white/16 hover:bg-[#11100D] md:p-5"
+              direction={index % 3 === 0 ? "left" : index % 3 === 2 ? "right" : "up"}
+              distance={42}
             >
-              <MiniSurface service={service} />
-              <div className="mt-5 flex items-start justify-between gap-5">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: service.accent }}>
-                    {service.number}
+              <motion.article
+                whileHover={{ y: -8, scale: 1.01 }}
+                transition={{ duration: 0.24 }}
+                className="brand-card group h-full overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-[#0D0C0A] p-4 transition-colors duration-300 hover:border-white/16 hover:bg-[#11100D] md:p-5"
+              >
+                <MiniSurface service={service} />
+                <div className="mt-5 flex items-start justify-between gap-5">
+                  <div>
+                    <span className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: service.accent }}>
+                      {service.number}
+                    </span>
+                    <h3 className="mt-2 font-display text-3xl font-black leading-none text-white md:text-4xl">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <span className="pt-2 text-xl text-white/24 transition-transform group-hover:translate-x-1" aria-hidden="true">
+                    →
                   </span>
-                  <h3 className="mt-2 font-display text-3xl font-black leading-none text-white md:text-4xl">
-                    {service.title}
-                  </h3>
                 </div>
-                <span className="pt-2 text-xl text-white/24 transition-transform group-hover:translate-x-1" aria-hidden="true">
-                  →
-                </span>
-              </div>
-              <p className="mt-4 max-w-lg text-sm font-semibold leading-relaxed text-white/54">
-                {service.line}
-              </p>
-            </motion.article>
+                <p className="mt-4 max-w-lg text-sm font-semibold leading-relaxed text-white/54">
+                  {service.line}
+                </p>
+              </motion.article>
+            </ScrollReveal>
           ))}
         </div>
       </div>
