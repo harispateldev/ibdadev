@@ -106,7 +106,7 @@ const HeroStory = () => {
               transition={shouldReduceMotion ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="grid h-20 w-20 place-items-center rounded-full bg-[#D7B46A] text-center text-black shadow-[0_0_70px_rgba(215,180,106,0.24)]"
             >
-              <span className="text-[10px] font-black uppercase leading-tight tracking-[0.12em]">IbdaDev<br />builds</span>
+              <span className="text-[10px] font-black uppercase leading-tight tracking-[0.12em]">Ibda Dev<br />builds</span>
             </motion.div>
           </div>
 
@@ -139,7 +139,7 @@ export default function AboutPage() {
               {...reveal(0)}
               className="mb-7 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold"
             >
-              About IbdaDev
+              About Ibda Dev
             </motion.p>
 
             <motion.h1

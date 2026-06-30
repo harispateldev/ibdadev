@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { MagneticWrapper } from "./MagneticWrapper";
+import { BrandLogo } from "./BrandLogo";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -25,24 +26,23 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <div className="fixed top-6 left-0 w-full z-50 flex items-center justify-between px-10 pointer-events-none">
+    <div className="fixed left-0 top-5 z-50 flex w-full items-center justify-between px-4 pointer-events-none sm:px-6 lg:px-10">
       {/* Spacer for left side balance */}
       <div className="flex-1 hidden lg:block" />
 
       {/* Centered Glass Pill (Logo + Links) */}
       <nav
         className={cn(
-          "nav-glass p-2 flex items-center gap-8 rounded-full transition-all duration-500 pointer-events-auto backdrop-blur-sm border border-white/10 shadow-2xl",
+          "nav-glass flex items-center gap-5 rounded-full p-2 transition-all duration-500 pointer-events-auto backdrop-blur-sm border border-white/10 shadow-2xl md:gap-8",
           scrolled ? "scale-95 shadow-black/80 bg-black/55" : "scale-100 bg-white/5"
         )}
       >
-        <Link 
-          href="/" 
-          className="gold-pill px-6 h-9 rounded-full flex items-center gap-2 group transition-all duration-300 hover:brightness-110 active:scale-95 shadow-lg"
+        <Link
+          href="/"
+          aria-label="Ibda Dev home"
+          className="group flex h-11 items-center rounded-full border border-white/10 bg-black/55 py-1.5 pl-1.5 pr-4 transition-all duration-300 hover:border-[#D7B46A]/35 hover:bg-[#0E0D0A] active:scale-95"
         >
-          <span className="text-white font-black tracking-tighter text-base leading-none">
-            IbdaDev
-          </span>
+          <BrandLogo compact className="gap-2.5" textClassName="hidden sm:flex" />
         </Link>
   
         {/* Navigation Links */}
@@ -73,13 +73,14 @@ export const NavBar = () => {
       </nav>
   
       {/* CTA Button - Far Right Corner (Outside the pill) */}
-      <div className="flex-1 flex justify-end pointer-events-auto">
+      <div className="flex flex-1 justify-end pointer-events-auto">
         <MagneticWrapper>
           <Link
             href="/work#start-project"
-            className="accent-pill px-8 py-3.5 rounded-full text-white font-black text-sm transition-all duration-300 hover:brightness-110 active:scale-95"
+            className="rounded-full border border-[#D7B46A]/30 bg-[#D7B46A]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.08em] text-[#D7B46A] transition-all duration-300 hover:bg-[#D7B46A] hover:text-[#050505] active:scale-95 sm:px-7 sm:text-sm"
           >
-            Start a Project
+            <span className="sm:hidden">Start</span>
+            <span className="hidden sm:inline">Start a Project</span>
           </Link>
         </MagneticWrapper>
       </div>

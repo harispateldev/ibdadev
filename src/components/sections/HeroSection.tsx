@@ -1,243 +1,218 @@
 "use client";
 
-import React, { useRef, useLayoutEffect } from "react";
+import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import gsap from "gsap";
-import { HeroCanvasDynamic } from "@/components/three/HeroCanvasDynamic";
+import { BRAND } from "@/constants/brand";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
-const flowPoints = [
-  { label: "AI", value: "Connected", x: "28%", y: "10%", color: "#60E6D2", delay: 0 },
-  { label: "Product", value: "Built", x: "68%", y: "18%", color: "#8E7CFF", delay: 0.14 },
-  { label: "Ops", value: "Automated", x: "72%", y: "64%", color: "#F06A3D", delay: 0.28 },
+const signalRows = [
+  ["Mobile booking", "Synced", "Live"],
+  ["New inquiry", "Qualified", "2 min"],
+  ["Payment flow", "Ready", "99.9%"],
 ];
 
-const surfaces = ["AI Tool", "Web App", "Mobile", "Dashboard"];
-const storySteps = ["Plan", "Build", "Connect", "Launch"];
+const buildTypes = ["Mobile", "Web", "AI", "SaaS", "Automation", "Dashboards"];
 
-const HeroTheater = () => {
-  const shouldReduceMotion = useReducedMotion();
+const ProductShowcase = () => {
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 34 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, delay: 0.22 }}
-      className="relative min-h-[420px] w-full [perspective:1200px] md:min-h-[540px] lg:min-h-[620px]"
-      aria-hidden="true"
+      initial={reduceMotion ? false : { opacity: 0, y: 28, rotateX: 4 }}
+      animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ duration: 0.72, delay: 0.18, ease: "easeOut" }}
+      className="relative mx-auto w-full max-w-[720px] lg:mx-0"
+      aria-label="Preview of business systems built by Ibda Dev"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_40%,rgba(215,180,106,0.16),transparent_21rem),radial-gradient(circle_at_72%_72%,rgba(96,230,210,0.13),transparent_22rem),radial-gradient(circle_at_24%_70%,rgba(142,124,255,0.12),transparent_23rem)]" />
+      <div className="absolute -inset-4 rounded-[2rem] border border-[#D7B46A]/10 bg-[#D7B46A]/[0.035] blur-2xl" aria-hidden="true" />
 
-      <motion.div
-        animate={shouldReduceMotion ? undefined : { rotateX: [58, 55, 58], rotateZ: [-10, -8, -10], y: [0, -10, 0] }}
-        transition={shouldReduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[7%] top-[12%] h-[68%] w-[86%] max-w-[680px] origin-center rounded-[2rem] bg-[#11100E]/72 shadow-[0_54px_150px_rgba(0,0,0,0.56),0_0_110px_rgba(96,230,210,0.12),inset_0_0_0_1px_rgba(255,255,255,0.12)] [transform:rotateX(58deg)_rotateZ(-10deg)] [transform-style:preserve-3d]"
-      >
-        <div className="absolute inset-0 overflow-hidden rounded-[2rem]">
-          <motion.div
-            animate={shouldReduceMotion ? undefined : { x: ["-36%", "120%"] }}
-            transition={shouldReduceMotion ? undefined : { duration: 4.6, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.2 }}
-            className="absolute top-0 h-full w-1/3 bg-gradient-to-r from-transparent via-white/12 to-transparent blur-sm"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:68px_68px]" />
-          <div className="absolute inset-x-10 top-10 h-1 bg-gradient-to-r from-[#D7B46A] via-[#60E6D2] to-[#8E7CFF]" />
-        </div>
-      </motion.div>
-
-      <motion.div
-        animate={shouldReduceMotion ? undefined : { rotateY: [-18, -14, -18], rotateX: [8, 11, 8], y: [0, -12, 0] }}
-        transition={shouldReduceMotion ? undefined : { duration: 7.2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-[48%] h-[78%] w-[88%] max-w-[660px] -translate-x-1/2 -translate-y-1/2 [transform:rotateY(-18deg)_rotateX(8deg)] [transform-style:preserve-3d]"
-      >
-        <div className="absolute inset-0 rounded-[2rem] bg-[#060505] shadow-[0_38px_120px_rgba(0,0,0,0.62)] [transform:translateZ(-42px)]" />
-
-        <div className="absolute left-[8%] top-[8%] h-[84%] w-[84%] overflow-hidden rounded-[2rem] bg-[#0D0C0A]/88 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14),0_38px_130px_rgba(0,0,0,0.55)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(215,180,106,0.24),transparent_14rem),radial-gradient(circle_at_72%_68%,rgba(96,230,210,0.20),transparent_13rem)]" />
-          <div className="absolute left-8 top-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.28em] text-white/32">From business need</p>
-            <p className="mt-3 text-4xl font-black uppercase leading-none text-white/90 md:text-6xl">To system</p>
+      <div className="animate-float-small relative overflow-hidden rounded-[1.55rem] border border-white/12 bg-[#0A0A08] shadow-[0_42px_140px_rgba(0,0,0,0.48)]">
+        <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.035] px-5 py-4">
+          <div className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#F06A3D]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#D7B46A]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#60E6D2]" />
           </div>
-          <div className="absolute right-8 top-8 bg-[#D7B46A] px-3 py-2 text-[10px] font-black uppercase tracking-[0.14em] text-black">
-            AI connected
-          </div>
-          <div className="absolute bottom-8 left-8 grid w-[52%] grid-cols-2 gap-2">
-            {storySteps.map((step, index) => (
-              <span key={step} className="bg-white/[0.055] px-2 py-3 text-center text-[10px] font-black uppercase tracking-[0.1em] text-white/52">
-                0{index + 1} {step}
-              </span>
-            ))}
-          </div>
+          <span className="text-[10px] font-black uppercase tracking-[0.22em] text-white/35">
+            Ibda Dev OS
+          </span>
         </div>
 
-        <div className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 md:h-[430px] md:w-[430px]">
-          <svg viewBox="0 0 430 430" className="absolute inset-0 h-full w-full overflow-visible">
-            <defs>
-              <filter id="hero-glow">
-                <feGaussianBlur stdDeviation="5" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-              <linearGradient id="hero-line" x1="60" x2="390" y1="80" y2="360">
-                <stop stopColor="#D7B46A" />
-                <stop offset="0.5" stopColor="#60E6D2" />
-                <stop offset="1" stopColor="#8E7CFF" />
-              </linearGradient>
-            </defs>
-            <path d="M70 225 C82 100 222 38 326 100 C432 164 414 315 296 372 C184 426 64 350 70 225Z" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="2" />
-            <motion.path
-              d="M70 225 C82 100 222 38 326 100 C432 164 414 315 296 372 C184 426 64 350 70 225Z"
-              fill="none"
-              stroke="url(#hero-line)"
-              strokeWidth="5"
-              strokeLinecap="round"
-              filter="url(#hero-glow)"
-              initial={shouldReduceMotion ? false : { pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.25, delay: 0.55, ease: "easeOut" }}
-            />
-          </svg>
+        <div className="grid gap-0 lg:grid-cols-[0.58fr_0.42fr]">
+          <div className="min-h-[430px] border-b border-white/10 p-5 lg:border-b-0 lg:border-r lg:border-white/10 md:p-7">
+            <div className="rounded-2xl border border-white/10 bg-[#10100D] p-5">
+              <div className="mb-7 flex items-start justify-between gap-5">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D7B46A]">
+                    Business command
+                  </p>
+                  <h3 className="mt-3 max-w-[12ch] font-display text-4xl font-black leading-[0.92] text-white md:text-5xl">
+                    Mobile to market.
+                  </h3>
+                </div>
+                <span className="live-pulse rounded-full bg-[#60E6D2] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-black">
+                  Live
+                </span>
+              </div>
 
-          <motion.div
-            animate={shouldReduceMotion ? undefined : { scale: [1, 1.05, 1], rotate: [0, 3, 0] }}
-            transition={shouldReduceMotion ? undefined : { duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-1/2 top-1/2 z-10 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center bg-[#070605] text-center shadow-[0_28px_90px_rgba(0,0,0,0.62),0_0_70px_rgba(215,180,106,0.16),inset_0_0_0_1px_rgba(255,255,255,0.14)] md:h-40 md:w-40"
-          >
-            <span>
-              <span className="block text-[10px] font-black uppercase tracking-[0.22em] text-white/34">IbdaDev</span>
-              <span className="mt-2 block text-2xl font-black uppercase leading-none text-[#D7B46A] md:text-3xl">Builds</span>
-            </span>
-          </motion.div>
+              <div className="grid gap-3">
+                {signalRows.map(([name, state, value], index) => (
+                  <motion.div
+                    key={name}
+                    initial={reduceMotion ? false : { opacity: 0, x: 14 }}
+                    animate={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+                    transition={{ duration: 0.38, delay: 0.38 + index * 0.08 }}
+                    className="motion-progress grid grid-cols-[1fr_auto_auto] items-center gap-3 rounded-xl border border-white/[0.07] bg-black/30 px-4 py-3"
+                  >
+                    <span className="text-sm font-bold text-white/78">{name}</span>
+                    <span className="rounded-full bg-white/[0.07] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-white/46">
+                      {state}
+                    </span>
+                    <span className="text-sm font-black text-[#D7B46A]">{value}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-          {flowPoints.map((node, index) => (
-            <motion.div
-              key={node.label}
-              initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.72, y: 12 }}
-              animate={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 1, scale: [1, 1.04, 1], y: [0, -5, 0] }}
-              transition={shouldReduceMotion ? { duration: 0.34, delay: 0.45 + index * 0.08 } : { duration: 3.8, delay: node.delay, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute z-20 grid h-20 w-24 place-items-center bg-[#080706]/82 text-center shadow-[0_18px_60px_rgba(0,0,0,0.44),0_0_42px_rgba(255,255,255,0.06),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur md:h-24 md:w-28"
-              style={{ left: node.x, top: node.y, color: node.color }}
-            >
-              <span className="text-[10px] font-black uppercase tracking-[0.14em] text-white/42">{node.label}</span>
-              <span className="text-xs font-black uppercase leading-none text-current md:text-sm">{node.value}</span>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          animate={shouldReduceMotion ? undefined : { y: [0, -10, 0] }}
-          transition={shouldReduceMotion ? undefined : { duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[7%] right-[2%] z-30 w-[38%] min-w-[170px] bg-[#090806]/90 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.52),0_0_54px_rgba(142,124,255,0.12),inset_0_0_0_1px_rgba(255,255,255,0.13)] backdrop-blur [transform:translateZ(70px)_rotateZ(6deg)]"
-        >
-          <p className="mb-3 text-[10px] font-black uppercase tracking-[0.2em] text-white/34">What ships</p>
-          <div className="grid grid-cols-2 gap-2">
-            {surfaces.map((item) => (
-              <span key={item} className="bg-white/[0.06] px-2 py-3 text-center text-[10px] font-black uppercase tracking-[0.1em] text-white/62">
-                {item}
-              </span>
-            ))}
+            <div className="mt-4 grid grid-cols-3 gap-3">
+              {[
+                ["12", "Products"],
+                ["3", "Continents"],
+                ["100%", "Handoff"],
+              ].map(([stat, label]) => (
+                <div key={label} className="rounded-xl border border-white/[0.07] bg-white/[0.035] p-4">
+                  <p className="font-display text-3xl font-black leading-none text-white">{stat}</p>
+                  <p className="mt-2 text-[10px] font-black uppercase tracking-[0.14em] text-white/36">{label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </motion.div>
 
-      </motion.div>
+          <div className="p-5 md:p-7">
+            <div className="mb-5">
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">
+                What clients get
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/58">
+                One connected solution across mobile, web, AI, and operations.
+              </p>
+            </div>
+
+            <div className="mb-4 rounded-[1.4rem] border border-white/[0.08] bg-[#050505] p-3">
+              <div className="animate-float mx-auto max-w-[168px] rounded-[1.35rem] border border-white/12 bg-[#10100D] p-2 shadow-[0_22px_70px_rgba(0,0,0,0.38)]">
+                <div className="rounded-[1.15rem] bg-[#070706] p-3">
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="h-1.5 w-8 rounded-full bg-white/20" />
+                    <span className="rounded-full bg-[#60E6D2] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-black">
+                      App
+                    </span>
+                  </div>
+                  <div className="sheen-surface rounded-xl p-3 text-black">
+                    <p className="text-[9px] font-black uppercase tracking-[0.14em] text-black/55">
+                      Today
+                    </p>
+                    <p className="mt-2 font-display text-2xl font-black leading-none">
+                      18 orders
+                    </p>
+                  </div>
+                  <div className="mt-3 grid gap-2">
+                    <span className="h-7 rounded-xl bg-white/[0.08]" />
+                    <span className="h-7 rounded-xl bg-white/[0.08]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              {buildTypes.map((item, index) => (
+                <motion.div
+                  key={item}
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.38, delay: 0.48 + index * 0.06 }}
+                  className="group flex min-h-12 items-center justify-between rounded-xl border border-white/[0.07] bg-[#11100D] px-3 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D7B46A]/30 hover:bg-[#16130E]"
+                >
+                  <span className="text-xs font-black text-white/78">{item}</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.12em] text-[#D7B46A]/60">
+                    0{index + 1}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
 
 export const HeroSection = () => {
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  useLayoutEffect(() => {
-    if (shouldReduceMotion || !headlineRef.current) return;
-
-    const words = headlineRef.current.querySelectorAll(".hero-word");
-    gsap.fromTo(
-      words,
-      { y: "105%", opacity: 0 },
-      {
-        y: "0%",
-        opacity: 1,
-        duration: 0.65,
-        ease: "power3.out",
-        stagger: 0.08,
-        delay: 0.15,
-      }
-    );
-  }, [shouldReduceMotion]);
-
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-transparent px-6 pb-12 pt-28 md:pb-16">
-      {/* WebGL Canvas — behind everything */}
-      <HeroCanvasDynamic />
-
+    <section className="relative overflow-hidden px-6 pb-14 pt-28 md:pb-20 md:pt-32">
+      <div className="brand-texture opacity-[0.55]" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ibda-gold/40 to-transparent" />
-      <div className="absolute right-[-14vw] top-20 hidden h-[48vw] max-h-[660px] w-[48vw] max-w-[660px] bg-[radial-gradient(circle,rgba(96,230,210,0.08),transparent_58%)] md:block" />
 
-      <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="flex flex-col items-start text-left">
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
+      <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.86fr_1.14fr]">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="mb-7 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold"
+            className="mb-7"
           >
-            From idea to working product
-          </motion.p>
-
-          {/* Headline with per-word clip-mask reveal */}
-          <h1
-            ref={headlineRef}
-            className="max-w-4xl text-5xl font-black leading-[0.88] tracking-normal sm:text-6xl md:text-7xl lg:text-8xl"
-          >
-            {["Build", "the", "tools."].map((word) => (
-              <span key={word} className="mr-[0.22em] inline-block overflow-hidden">
-                <span className="hero-word inline-block">{word}</span>
-              </span>
-            ))}
-            <br />
-            {["Run", "the", "business."].map((word) => (
-              <span key={word} className="mr-[0.22em] inline-block overflow-hidden">
-                <span className="hero-word inline-block">{word}</span>
-              </span>
-            ))}
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.58, delay: 0.22 }}
-            className="mt-8 max-w-xl text-base font-medium leading-relaxed text-white/75 md:text-xl"
-          >
-            We design and build the systems that run your business — AI-connected, fully integrated, and shipped fast.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.58, delay: 0.32 }}
-            className="mt-10 flex flex-wrap items-center justify-start gap-5"
-          >
-            <a href="/contact" className="rounded-full bg-[#D7B46A] px-8 py-4 text-base font-bold text-[#050505] shadow-[0_18px_45px_rgba(215,180,106,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(215,180,106,0.28)]">
-              Start a Project
-            </a>
-            <a href="/work" className="group inline-flex items-center gap-3 py-4 text-sm font-black uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-ibda-gold">
-              View our work
-              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </a>
+            <BrandLogo showTagline />
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.52 }}
-            className="mt-6 text-xs font-medium tracking-wide text-white/38"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.04 }}
+            className="mb-6 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold"
           >
-            12 products shipped · 3 continents · 100% client retention
+            Premium software and AI solutions
           </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.64, delay: 0.08 }}
+            className="font-display text-4xl font-black leading-[0.9] tracking-normal text-white sm:text-5xl md:text-6xl xl:text-7xl"
+          >
+            {BRAND.heroLine}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.58, delay: 0.2 }}
+            className="mt-6 max-w-xl text-base font-semibold leading-relaxed text-white/68 md:text-lg"
+          >
+            {BRAND.siteLine} Across mobile apps, web platforms, SaaS, dashboards, commerce, and connected operations.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.58, delay: 0.3 }}
+            className="mt-8 flex flex-wrap items-center gap-4"
+          >
+            <a
+              href="/work#start-project"
+              className="rounded-full bg-[#D7B46A] px-7 py-4 text-sm font-black uppercase tracking-[0.08em] text-[#050505] shadow-[0_20px_60px_rgba(215,180,106,0.24)] transition-all hover:-translate-y-0.5 hover:brightness-110"
+            >
+              Start a project
+            </a>
+            <a
+              href="#selected-systems"
+              className="group inline-flex items-center gap-3 py-4 text-sm font-black uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white"
+            >
+              See the work
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </motion.div>
         </div>
 
-        <HeroTheater />
+        <ProductShowcase />
       </div>
     </section>
   );

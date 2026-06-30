@@ -1,331 +1,279 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-type CaseStudy = {
-  index: string;
+type Work = {
   title: string;
-  category: string;
+  type: string;
   statement: string;
-  problem: string;
-  shipped: string;
-  outcome: string;
-  metric: string;
   accent: string;
-  stack: string[];
-  preview: {
-    label: string;
-    value: string;
-    rows: string[];
-  };
+  tags: string[];
+  metric: string;
+  layout: "mobile" | "commerce" | "ai" | "portal";
 };
 
-const cases: CaseStudy[] = [
+const works: Work[] = [
   {
-    index: "01",
+    title: "Mobile service app",
+    type: "iOS + Android workflow",
+    statement: "A customer and team app for bookings, updates, payments, and service status.",
+    accent: "#D7B46A",
+    tags: ["Mobile", "Booking", "Payments"],
+    metric: "Business in the pocket",
+    layout: "mobile",
+  },
+  {
+    title: "Commerce platform",
+    type: "Storefront + admin",
+    statement: "A premium buying experience with the operations layer behind it.",
+    accent: "#F06A3D",
+    tags: ["Next.js", "Payments", "Admin"],
+    metric: "Built for launch",
+    layout: "commerce",
+  },
+  {
     title: "AI lead desk",
-    category: "AI workflow",
-    statement: "A business inbox that qualifies and routes leads before the team opens WhatsApp.",
-    problem: "Enquiries were split across forms, chat, and manual follow-up.",
-    shipped: "AI intake, lead scoring, CRM sync, reply drafts, and owner routing.",
-    outcome: "Every lead gets a fast first response and a clear next step.",
-    metric: "Reply time: minutes",
-    accent: "#D7B46A",
-    stack: ["AI", "CRM", "Automation"],
-    preview: {
-      label: "Lead queue",
-      value: "24/7",
-      rows: ["Classify intent", "Draft response", "Route owner"],
-    },
-  },
-  {
-    index: "02",
-    title: "Client portal",
-    category: "SaaS product",
-    statement: "A secure workspace for requests, files, invoices, and project status.",
-    problem: "Operations lived across calls, spreadsheets, and repeated updates.",
-    shipped: "Auth, dashboards, file handoff, billing states, and admin controls.",
-    outcome: "The team runs service delivery from one product.",
-    metric: "One source of truth",
+    type: "Sales automation",
+    statement: "Leads are qualified, answered, and routed before the team opens chat.",
     accent: "#60E6D2",
-    stack: ["SaaS", "Auth", "Dashboard"],
-    preview: {
-      label: "Workspace",
-      value: "Live",
-      rows: ["Open requests", "Files received", "Invoice status"],
-    },
+    tags: ["AI", "CRM", "Routing"],
+    metric: "Reply time: minutes",
+    layout: "ai",
   },
   {
-    index: "03",
-    title: "Growth website",
-    category: "Web presence",
-    statement: "A clear business website built to explain the offer and convert visits.",
-    problem: "The old site did not make the business easy to understand or contact.",
-    shipped: "Positioning, conversion pages, lead forms, analytics, and speed pass.",
-    outcome: "Visitors understand the offer faster and have a direct path to enquiry.",
-    metric: "Built for conversion",
-    accent: "#8E7CFF",
-    stack: ["Website", "SEO", "Analytics"],
-    preview: {
-      label: "Growth page",
-      value: "Fast",
-      rows: ["Offer clarity", "Trust proof", "Lead capture"],
-    },
-  },
-  {
-    index: "04",
-    title: "Ops command center",
-    category: "Automation",
-    statement: "A back-office dashboard for orders, tasks, alerts, and reporting.",
-    problem: "Daily work depended on copy-paste, late updates, and scattered reports.",
-    shipped: "Database, workflow automation, admin dashboard, alerts, and reports.",
-    outcome: "Less coordination, fewer missed tasks, and cleaner owner visibility.",
-    metric: "Manual work reduced",
-    accent: "#D7B46A",
-    stack: ["Ops", "Database", "Reports"],
-    preview: {
-      label: "Ops board",
-      value: "Synced",
-      rows: ["Orders updated", "Tasks assigned", "Reports sent"],
-    },
+    title: "Client portal",
+    type: "SaaS workspace",
+    statement: "Requests, files, invoices, and project status in one simple product.",
+    accent: "#F06A3D",
+    tags: ["Auth", "Dashboard", "Billing"],
+    metric: "One source of truth",
+    layout: "portal",
   },
 ];
 
-const SystemSurface = ({ item }: { item: CaseStudy }) => {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <div className="relative flex min-h-[300px] items-center overflow-hidden bg-[#080807] p-5 md:min-h-[360px] md:p-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(215,180,106,0.10),transparent_24rem)]" />
-      <div className="relative z-10 mx-auto w-full max-w-[540px] rounded-lg border border-white/10 bg-[#0D0C0A]/90 p-5 shadow-[0_28px_90px_rgba(0,0,0,0.26)] md:p-6">
-        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.22em] text-white/35">
-              {item.preview.label}
-            </p>
-            <p className="mt-2 text-2xl font-black leading-none text-white md:text-3xl">
-              {item.preview.value}
-            </p>
+const Preview = ({ work }: { work: Work }) => {
+  if (work.layout === "mobile") {
+    return (
+      <div className="relative min-h-[360px] overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-[#080806] p-5">
+        <div className="absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_50%_0%,rgba(215,180,106,0.28),transparent_70%)]" />
+        <div className="relative mx-auto grid max-w-[520px] grid-cols-[0.72fr_0.28fr] gap-4">
+          <div className="animate-float-small rounded-[2rem] border border-white/12 bg-[#10100D] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.48)]">
+            <div className="screen-scan rounded-[1.55rem] bg-[#070706] p-4">
+              <div className="mb-5 flex items-center justify-between">
+                <span className="h-1.5 w-10 rounded-full bg-white/18" />
+                <span className="live-pulse rounded-full bg-[#60E6D2] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-black">
+                  Live
+                </span>
+              </div>
+              <div className="sheen-surface rounded-2xl p-4 text-black">
+                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-black/50">
+                  Next booking
+                </p>
+                <p className="mt-3 font-display text-4xl font-black leading-none">
+                  09:30
+                </p>
+                <p className="mt-2 text-xs font-bold text-black/55">
+                  Paid and assigned
+                </p>
+              </div>
+              <div className="mt-4 grid gap-3">
+                {["Customer update", "Technician route", "Invoice sent"].map((item) => (
+                  <div key={item} className="motion-progress flex items-center justify-between rounded-xl bg-white/[0.07] px-3 py-3">
+                    <span className="text-xs font-bold text-white/62">{item}</span>
+                    <span className="h-2 w-2 rounded-full bg-[#D7B46A]" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <span
-            className="rounded-md px-3 py-2 text-[10px] font-black uppercase tracking-[0.14em] text-[#050505]"
-            style={{ backgroundColor: item.accent }}
-          >
-            shipped
-          </span>
+          <div className="grid gap-3 py-8">
+            {["Book", "Pay", "Track"].map((item, index) => (
+              <div key={item} className="animate-float-small rounded-2xl bg-white/[0.055] p-3" style={{ animationDelay: `${index * 0.24}s` }}>
+                <p className="text-[9px] font-black uppercase tracking-[0.14em] text-white/30">0{index + 1}</p>
+                <p className="mt-5 text-sm font-black text-white/72">{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+    );
+  }
 
-        <div className="mt-5 grid gap-3">
-          {item.preview.rows.map((row, rowIndex) => (
-            <motion.div
-              key={row}
-              initial={reduceMotion ? false : { opacity: 0, x: 18 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.42, delay: rowIndex * 0.08 }}
-              className="flex items-center justify-between rounded-md border border-white/8 bg-white/[0.045] px-4 py-3"
-            >
-              <span className="text-sm font-semibold text-white/72">{row}</span>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: item.accent }} />
-            </motion.div>
+  if (work.layout === "commerce") {
+    return (
+      <div className="relative grid h-full min-h-[320px] grid-cols-[0.72fr_0.28fr] gap-4 rounded-[1.25rem] border border-white/[0.08] bg-[#080806] p-4">
+        <div className="overflow-hidden rounded-2xl bg-[#16110C]">
+          <div className="sheen-surface h-2/3 opacity-85" />
+          <div className="p-4">
+            <div className="h-3 w-2/3 rounded-full bg-white/55" />
+            <div className="mt-3 h-2 w-1/2 rounded-full bg-white/20" />
+            <div className="mt-5 grid grid-cols-3 gap-2">
+              <span className="h-16 rounded-xl bg-white/[0.08]" />
+              <span className="h-16 rounded-xl bg-white/[0.08]" />
+              <span className="h-16 rounded-xl bg-white/[0.08]" />
+            </div>
+          </div>
+        </div>
+        <div className="grid gap-3">
+          {["Orders", "Stock", "Revenue"].map((item, index) => (
+            <div key={item} className="motion-progress rounded-xl bg-white/[0.055] p-3">
+              <p className="text-[9px] font-black uppercase tracking-[0.14em] text-white/32">{item}</p>
+              <p className="mt-3 font-display text-2xl font-black text-white">{index === 0 ? "128" : index === 1 ? "94%" : "Live"}</p>
+            </div>
           ))}
         </div>
+      </div>
+    );
+  }
 
-        <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-white/10">
-          <motion.span
-            className="block h-full origin-left rounded-full"
-            style={{ backgroundColor: item.accent }}
-            initial={reduceMotion ? false : { scaleX: 0 }}
-            whileInView={reduceMotion ? undefined : { scaleX: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-          />
+  if (work.layout === "ai") {
+    return (
+      <div className="relative h-full min-h-[320px] rounded-[1.25rem] border border-white/[0.08] bg-[#07110F] p-4">
+        <div className="mb-4 flex items-center justify-between">
+          <span className="rounded-full bg-[#60E6D2]/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-[#60E6D2]">
+            AI queue
+          </span>
+          <span className="text-[10px] font-black uppercase tracking-[0.16em] text-white/30">24/7</span>
+        </div>
+        <div className="grid gap-3">
+          {[
+            ["WhatsApp inquiry", "High intent"],
+            ["Website form", "Needs quote"],
+            ["Missed call", "Follow up"],
+            ["Email request", "Route to sales"],
+          ].map(([source, state], index) => (
+            <div key={source} className="motion-progress grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl bg-white/[0.055] p-3">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#60E6D2]/15 text-xs font-black text-[#60E6D2]">
+                {index + 1}
+              </span>
+              <div>
+                <p className="text-sm font-black text-white/78">{source}</p>
+                <p className="mt-1 text-xs font-semibold text-white/32">{state}</p>
+              </div>
+              <span className="live-pulse h-2.5 w-2.5 rounded-full bg-[#60E6D2]" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative h-full min-h-[320px] rounded-[1.25rem] border border-white/[0.08] bg-[#130B08] p-4">
+      <div className="grid h-full gap-4 md:grid-cols-[0.36fr_0.64fr]">
+        <div className="rounded-2xl bg-white/[0.055] p-4">
+          <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#F06A3D]">Portal</p>
+          <div className="mt-6 grid gap-2">
+            <span className="h-8 rounded-lg bg-[#F06A3D]/25" />
+            <span className="h-8 rounded-lg bg-white/[0.08]" />
+            <span className="h-8 rounded-lg bg-white/[0.08]" />
+            <span className="h-8 rounded-lg bg-white/[0.08]" />
+          </div>
+        </div>
+        <div className="rounded-2xl bg-[#090806] p-4">
+          <div className="sheen-surface mb-4 h-24 rounded-xl" />
+          <div className="grid gap-3">
+            {["Request approved", "Files received", "Invoice ready"].map((item) => (
+              <div key={item} className="motion-progress flex items-center justify-between rounded-xl bg-white/[0.055] px-3 py-3">
+                <span className="text-xs font-bold text-white/62">{item}</span>
+                <span className="h-2 w-2 rounded-full bg-[#F06A3D]" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const CasePanel = ({ item }: { item: CaseStudy }) => (
-  <motion.article
-    initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-80px" }}
-    transition={{ duration: 0.58 }}
-    className="project-panel grid min-h-[540px] w-[calc(100vw-3rem)] shrink-0 snap-start overflow-hidden rounded-lg border border-white/10 bg-[#0D0C0A] shadow-[0_36px_120px_rgba(0,0,0,0.28)] md:w-[min(62vw,900px)] lg:min-h-[500px] lg:w-[min(68vw,1020px)] lg:grid-cols-[0.44fr_0.56fr] xl:w-[min(62vw,1040px)]"
-  >
-    <div className="flex flex-col justify-between p-6 md:p-7 lg:p-8">
+const WorkCard = ({ work, index }: { work: Work; index: number }) => {
+  const reduceMotion = useReducedMotion();
+  const offset = index === 0 ? 0 : index === 1 ? -26 : index === 3 ? 26 : 0;
+
+  return (
+    <motion.article
+      initial={reduceMotion ? false : { opacity: 0, y: 34, x: offset, scale: 0.97 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, x: 0, scale: 1 }}
+      whileHover={{ y: -6 }}
+      viewport={{ once: true, margin: "-90px" }}
+      transition={{ duration: 0.62, delay: index * 0.075, ease: [0.16, 1, 0.3, 1] }}
+      className={index === 0 ? "grid gap-5 lg:grid-cols-[0.52fr_0.48fr]" : "grid gap-5"}
+    >
+      <Preview work={work} />
+      <div className="brand-card flex flex-col justify-between rounded-[1.25rem] border border-white/[0.08] bg-[#0D0C0A] p-6 md:p-7">
       <div>
-        <div className="mb-6 flex items-center justify-between gap-4">
-          <span className="text-sm font-black text-white/42">
-            {item.index}
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <span className="text-[10px] font-black uppercase tracking-[0.22em]" style={{ color: work.accent }}>
+            {work.type}
           </span>
-          <span className="rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-white/48">
-            {item.category}
+          <span className="text-[10px] font-black uppercase tracking-[0.16em] text-white/25">
+            0{index + 1}
           </span>
         </div>
-
-        <h3 className="text-3xl font-black leading-[0.94] tracking-normal text-white md:text-4xl xl:text-5xl">
-          {item.title}
+        <h3 className="font-display text-4xl font-black leading-[0.92] text-white md:text-5xl">
+          {work.title}
         </h3>
-        <p className="mt-4 max-w-lg text-base font-bold leading-snug text-white/72 md:text-lg">
-          {item.statement}
+        <p className="mt-5 max-w-md text-base font-semibold leading-relaxed text-white/58">
+          {work.statement}
         </p>
-
-        <div className="mt-6 grid gap-4 border-t border-white/10 pt-5">
-          <div>
-            <p className="mb-2 text-[10px] font-black uppercase tracking-[0.22em] text-white/30">
-              Business problem
-            </p>
-            <p className="text-[13px] leading-relaxed text-white/56">{item.problem}</p>
-          </div>
-          <div>
-            <p className="mb-2 text-[10px] font-black uppercase tracking-[0.22em] text-white/30">
-              What shipped
-            </p>
-            <p className="text-[13px] leading-relaxed text-white/56">{item.shipped}</p>
-          </div>
-        </div>
       </div>
-
-      <div className="mt-6">
-        <p className="mb-4 text-base font-black leading-snug" style={{ color: item.accent }}>
-          {item.metric}
-        </p>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/54">
-          {item.outcome}
+      <div className="mt-8">
+        <p className="mb-4 font-display text-2xl font-black" style={{ color: work.accent }}>
+          {work.metric}
         </p>
         <div className="flex flex-wrap gap-2">
-          {item.stack.map((stack) => (
-            <span
-              key={stack}
-              className="rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-white/46"
-            >
-              {stack}
+          {work.tags.map((tag) => (
+            <span key={tag} className="rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-white/44">
+              {tag}
             </span>
           ))}
         </div>
       </div>
-    </div>
-
-    <SystemSurface item={item} />
-  </motion.article>
-);
+      </div>
+    </motion.article>
+  );
+};
 
 export const WorksSection = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const trackViewportRef = useRef<HTMLDivElement | null>(null);
-  const trackRef = useRef<HTMLDivElement | null>(null);
   const reduceMotion = useReducedMotion();
-  const [travel, setTravel] = useState(0);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  const rawX = useTransform(scrollYProgress, [0, 1], [0, -travel]);
-  const x = useSpring(rawX, {
-    stiffness: 95,
-    damping: 28,
-    mass: 0.55,
-  });
-  const progressScale = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 32,
-    mass: 0.35,
-  });
-
-  useEffect(() => {
-    if (reduceMotion) {
-      setTravel(0);
-      return;
-    }
-
-    const viewport = trackViewportRef.current;
-    const track = trackRef.current;
-    if (!viewport || !track) return;
-
-    const updateTravel = () => {
-      setTravel(Math.max(0, track.scrollWidth - viewport.clientWidth));
-    };
-
-    updateTravel();
-
-    const resizeObserver = new ResizeObserver(updateTravel);
-    resizeObserver.observe(viewport);
-    resizeObserver.observe(track);
-    window.addEventListener("resize", updateTravel);
-
-    return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener("resize", updateTravel);
-    };
-  }, [reduceMotion]);
 
   return (
-    <section
-      ref={sectionRef}
-      id="selected-systems"
-      className="relative overflow-visible bg-[#050505] px-6 py-24 md:py-28 lg:h-[385vh] lg:px-0 lg:py-0"
-    >
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(215,180,106,0.08),transparent_26rem),radial-gradient(circle_at_80%_78%,rgba(96,230,210,0.07),transparent_30rem)]" />
+    <section id="selected-systems" className="relative overflow-hidden bg-[#050505] px-6 py-20 md:py-28">
+      <div className="brand-texture opacity-[0.32]" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
-      <div className="container relative z-10 mx-auto max-w-7xl lg:sticky lg:top-0 lg:flex lg:h-screen lg:max-w-none lg:items-center lg:overflow-hidden lg:px-8 xl:px-12">
-        <div className="grid w-full gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-center xl:grid-cols-[260px_minmax(0,1fr)]">
-          <div className="lg:self-center">
-            <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
-              Selected work
+      <div className="container relative z-10 mx-auto max-w-7xl">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-11 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
+              Selected systems
             </p>
-            <h2 className="max-w-[11ch] text-4xl font-black leading-[0.92] tracking-normal text-white md:text-5xl">
-              Systems that ship business work.
+            <h2 className="max-w-4xl font-display text-4xl font-black leading-[0.9] text-white md:text-6xl">
+              Mobile, web, AI, and business systems in one portfolio.
             </h2>
-            <p className="mt-6 max-w-[22rem] text-sm font-medium leading-relaxed text-white/52">
-              Websites, apps, AI workflows, and automations built around real company problems.
-            </p>
-            <a
-              href="/work"
-              className="mt-8 inline-flex items-center gap-3 rounded-md bg-[#D7B46A] px-5 py-3 text-sm font-black text-[#050505] shadow-[0_18px_45px_rgba(215,180,106,0.20)] transition-transform hover:-translate-y-0.5"
-            >
-              View all work
-              <span aria-hidden="true">+</span>
-            </a>
-            <div className="mt-10 grid gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/42">
-              {["Strategy", "Build", "Launch"].map((item) => (
-                <span key={item} className="border-l border-white/12 pl-3">
-                  {item}
-                </span>
-              ))}
-            </div>
-            <div className="mt-8 hidden h-1 w-full max-w-[12rem] overflow-hidden rounded-full bg-white/10 lg:block">
-              <motion.span
-                className="block h-full origin-left rounded-full bg-[#D7B46A]"
-                style={{ scaleX: reduceMotion ? 1 : progressScale }}
-              />
-            </div>
           </div>
-
-          <div
-            ref={trackViewportRef}
-            className="overflow-visible lg:-mr-12 lg:overflow-hidden xl:-mr-16"
+          <a
+            href="/work"
+            className="inline-flex items-center gap-3 rounded-full border border-white/12 px-5 py-3 text-sm font-black uppercase tracking-[0.1em] text-white/62 transition-colors hover:border-[#D7B46A]/50 hover:text-[#D7B46A]"
           >
-            <motion.div
-              ref={trackRef}
-              className="marquee-fade flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-6 pr-8 [scrollbar-width:none] lg:w-max lg:gap-6 lg:overflow-visible lg:pb-0 lg:pr-[18vw] [&::-webkit-scrollbar]:hidden"
-              style={{ x: reduceMotion ? 0 : x }}
-            >
-              {cases.map((item) => (
-                <CasePanel key={item.index} item={item} />
-              ))}
-            </motion.div>
+            View all work
+            <span aria-hidden="true">→</span>
+          </a>
+        </motion.div>
+
+        <div className="grid gap-5">
+          <WorkCard work={works[0]} index={0} />
+          <div className="grid gap-5 lg:grid-cols-3">
+            {works.slice(1).map((work, index) => (
+              <WorkCard key={work.title} work={work} index={index + 1} />
+            ))}
           </div>
         </div>
       </div>

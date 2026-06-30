@@ -1,22 +1,22 @@
-# 🎨 IbdaDev — Creative Development Agency
+# Ibda Dev - Software. AI. Automation.
 
-**IbdaDev** (إبداع + Dev) is a high-end, immersive creative development agency website combining absolute technical precision with artistic audacity. The platform features state-of-the-art interactive 3D WebGL experiences, cinematic scroll animations, and premium dark-mode aesthetics.
+**Ibda Dev** designs and builds modern software, AI products, and automation systems. The site presents a minimal, premium, structured agency brand for mobile apps, web platforms, SaaS products, AI systems, dashboards, commerce, and connected business operations.
 
-*"Code with Creativity — Where Innovation Meets Development"*
-
----
-
-## ✨ Features
-
-- **Immersive 3D Scroll Scenes**: Fully interactive React Three Fiber environment containing an custom geometric Rub-el-Hizb (۞) centerpiece, orbiting satellites, dynamic wireframe icosahedrons, and responsive floating spheres.
-- **Scroll-Linked Lighting & Color Cycles**: Real-time canvas lighting transitions and particle color interpolation dynamically reacting to the scroll position using Zustand and GSAP.
-- **Cinematic Scroll Animations**: Smooth inertia scrolling powered by Lenis combined with GSAP ScrollTrigger and Framer Motion for premium micro-interactions.
-- **Arabic-Inspired Design System**: Tailored brand identity utilizing a deep void black background (`#050508`), electric indigo accent (`#6C63FF`), warm gold (`#D4A853`), and futuristic tech cyan (`#00D4FF`).
-- **Responsive Layouts**: Seamless typography scaling and layout transitions optimized for mobile, tablet, and desktop viewports.
+*"Building intelligent digital systems."*
 
 ---
 
-## 🛠️ Tech Stack
+## Features
+
+- **Premium Brand System**: Black-and-gold Ibda Dev mark, short brand copy, and structured dark visual language.
+- **Business-Focused Homepage**: Sections explain software, AI, automation, mobile, web, SaaS, dashboard, and commerce solutions.
+- **Purposeful Motion**: Scroll-triggered reveals, assembling cards, live product states, and restrained micro-interactions.
+- **Localized Texture**: Richer background texture appears around showcase sections without overpowering copy.
+- **Responsive Layouts**: Typography, cards, and product surfaces are tuned for mobile, tablet, and desktop viewports.
+
+---
+
+## Tech Stack
 
 - **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
@@ -28,7 +28,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -51,7 +51,7 @@
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 - `src/app/` — Next.js routing, global styles, and page layouts.
 - `src/components/scenes/` — React Three Fiber canvas, camera controls, lighting setups, and 3D geometries.

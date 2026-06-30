@@ -1,81 +1,80 @@
 "use client";
 
-import React, { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { MagneticWrapper } from "@/components/ui/MagneticWrapper";
-
-gsap.registerPlugin(ScrollTrigger);
+import { BRAND } from "@/constants/brand";
 
 export const CTASection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
-
-    let ctx = gsap.context(() => {
-      gsap.from(".cta-content", {
-        scale: 0.96,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden border-t border-ibda-border bg-ibda-bg py-48">
-      <div className="absolute inset-0 z-0 theme-grid opacity-30" />
-      <div className="aurora-blob absolute inset-0 z-0" aria-hidden="true" />
-      <div className="container mx-auto px-6 relative z-10 text-center">
-        <div className="cta-content max-w-4xl mx-auto">
-          <h2 className="mb-10 text-5xl font-black leading-[0.95] tracking-normal md:text-8xl">
-            Bring a real problem. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ibda-gold via-white to-white/40">
-              We&apos;ll build what moves it forward.
-            </span>
+    <section id="start-project" className="relative overflow-hidden border-t border-white/[0.08] bg-[#050505] px-6 py-20 md:py-28">
+      <div className="brand-texture opacity-[0.5]" aria-hidden="true" />
+      <div className="absolute inset-0 z-0 theme-grid opacity-25" />
+
+      <div className="container relative z-10 mx-auto max-w-6xl">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 34, scale: 0.97 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
+        >
+          <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
+            {BRAND.tagline}
+          </p>
+          <h2 className="mx-auto max-w-5xl font-display text-5xl font-black leading-[0.88] text-white md:text-7xl lg:text-8xl">
+            Bring the business problem. We’ll make it work beautifully.
           </h2>
-
-          <p className="mx-auto mb-12 max-w-xl text-lg leading-relaxed text-white/60">
-            Tell us the goal, the deadline, and what needs to improve. We&apos;ll scope and build the right solution.
+          <p className="mx-auto mt-7 max-w-2xl text-base font-semibold leading-relaxed text-white/56 md:text-lg">
+            Tell us what needs to improve. We’ll shape the software, AI product, mobile app, automation, and launch plan around it.
           </p>
 
-          <div className="mx-auto mb-14 grid max-w-3xl gap-4 text-left md:grid-cols-3">
-            {["Scope before style", "Performance before polish", "Handoff before launch"].map((item) => (
-              <div key={item} className="rounded-lg border border-white/10 bg-white/[0.035] px-5 py-4">
-                <span className="text-sm font-bold text-white/62">{item}</span>
-              </div>
-            ))}
+          <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-full border border-white/[0.08] bg-white/[0.025] py-2">
+            <div className="motion-marquee flex w-max gap-2">
+              {[
+                "Mobile apps",
+                "Web platforms",
+                "AI systems",
+                "Dashboards",
+                "Commerce",
+                "Automation",
+                "SaaS portals",
+                "Business tools",
+                "Mobile apps",
+                "Web platforms",
+                "AI systems",
+                "Dashboards",
+                "Commerce",
+                "Automation",
+                "SaaS portals",
+                "Business tools",
+              ].map((item, index) => (
+                <span key={`${item}-${index}`} className="px-4 text-[10px] font-black uppercase tracking-[0.18em] text-white/36">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <MagneticWrapper>
-              <a href="/contact" className="w-full rounded-full bg-[#D7B46A] px-12 py-6 text-xl font-black text-[#050505] shadow-[0_20px_60px_rgba(215,180,106,0.24)] transition-all hover:-translate-y-0.5 active:scale-95 md:w-auto">
-                Start a Project
+              <a
+                href="/work#start-project"
+                className="sheen-surface inline-flex rounded-full px-9 py-4 text-sm font-black uppercase tracking-[0.1em] text-[#050505] shadow-[0_20px_60px_rgba(215,180,106,0.24)] transition-all hover:-translate-y-0.5 hover:brightness-110"
+              >
+                Start a project
               </a>
             </MagneticWrapper>
-            <MagneticWrapper>
-              <a href="#our-process" className="w-full rounded-full border border-ibda-border bg-white/5 px-10 py-5 text-lg font-black text-white transition-all hover:bg-white/10 md:w-auto">
-                See how we work
-              </a>
-            </MagneticWrapper>
+            <a
+              href="/work"
+              className="inline-flex rounded-full border border-white/12 px-8 py-4 text-sm font-black uppercase tracking-[0.1em] text-white/62 transition-colors hover:border-white/26 hover:text-white"
+            >
+              See work
+            </a>
           </div>
-
-          <p className="mx-auto mt-10 max-w-md text-sm font-bold leading-relaxed text-white/[0.42]">
-            We&apos;ll talk about your business first. No pitch, no pressure.
-          </p>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );

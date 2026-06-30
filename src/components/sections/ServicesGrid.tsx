@@ -1,173 +1,170 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-type Capability = {
+type Service = {
+  number: string;
   title: string;
-  move: string;
-  result: string;
-  description: string;
-  outcome: string;
-  mark: string;
-  color: string;
-  glow: string;
-  path: string;
+  line: string;
+  accent: string;
+  kind: "mobile" | "web" | "ai" | "commerce" | "automation" | "dashboard";
 };
 
-const capabilities: Capability[] = [
+const services: Service[] = [
   {
-    title: "Website",
-    move: "Launch",
-    result: "Live",
-    description: "High-performance site built for speed, trust, and conversions.",
-    outcome: "Rank higher. Convert visitors. Win on first impression.",
-    mark: "01",
-    color: "#D7B46A",
-    glow: "rgba(215,180,106,0.28)",
-    path: "M28 92 C100 24 188 28 250 104",
+    number: "01",
+    title: "Mobile apps",
+    line: "Customer apps, internal tools, booking flows, and field-team workflows.",
+    accent: "#D7B46A",
+    kind: "mobile",
   },
   {
-    title: "Leads",
-    move: "Convert",
-    result: "Pipeline",
-    description: "AI-powered funnels, forms, and outreach that fill your calendar.",
-    outcome: "Turn traffic into booked calls and qualified deals.",
-    mark: "02",
-    color: "#60E6D2",
-    glow: "rgba(96,230,210,0.24)",
-    path: "M28 116 C102 68 190 70 252 112",
+    number: "02",
+    title: "Web platforms",
+    line: "Premium websites, portals, SaaS products, and business dashboards.",
+    accent: "#60E6D2",
+    kind: "web",
   },
   {
-    title: "Apps",
-    move: "Operate",
-    result: "Built",
-    description: "Custom web and mobile apps built around your exact workflow.",
-    outcome: "Replace spreadsheets and manual steps with tools that scale.",
-    mark: "03",
-    color: "#8E7CFF",
-    glow: "rgba(142,124,255,0.24)",
-    path: "M28 140 C104 192 190 188 252 124",
+    number: "03",
+    title: "AI systems",
+    line: "Assistants, lead qualification, document workflows, and smart routing.",
+    accent: "#BDA7FF",
+    kind: "ai",
   },
   {
-    title: "AI Ops",
-    move: "Automate",
-    result: "Automated",
-    description: "Automate repetitive tasks, data flows, and team operations.",
-    outcome: "Get more done with fewer people and zero manual errors.",
-    mark: "04",
-    color: "#F06A3D",
-    glow: "rgba(240,106,61,0.22)",
-    path: "M28 164 C96 230 206 218 252 144",
+    number: "04",
+    title: "Commerce",
+    line: "Storefronts, payments, admin panels, stock, orders, and reporting.",
+    accent: "#F06A3D",
+    kind: "commerce",
+  },
+  {
+    number: "05",
+    title: "Automation",
+    line: "Connect the tools your team already uses and remove repeated work.",
+    accent: "#73E2A7",
+    kind: "automation",
+  },
+  {
+    number: "06",
+    title: "Business dashboards",
+    line: "Live visibility into sales, tasks, operations, and performance.",
+    accent: "#7AB8FF",
+    kind: "dashboard",
   },
 ];
 
-const SignalMap = ({ active }: { active: number }) => {
-  const shouldReduceMotion = useReducedMotion();
-  const current = capabilities[active];
+const MiniSurface = ({ service }: { service: Service }) => {
+  if (service.kind === "mobile") {
+    return (
+      <div className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080806] p-4">
+        <div className="animate-float-small mx-auto h-full max-w-[132px] rounded-[1.55rem] border border-white/12 bg-[#12110E] p-2">
+          <div className="screen-scan h-full rounded-[1.15rem] bg-[#070706] p-3">
+            <div className="mb-3 h-1.5 w-9 rounded-full bg-white/18" />
+            <div className="sheen-surface rounded-xl p-3 text-black">
+              <p className="text-[8px] font-black uppercase tracking-[0.12em] text-black/50">Mobile</p>
+              <p className="mt-2 font-display text-xl font-black leading-none">Book</p>
+            </div>
+            <div className="mt-3 grid gap-2">
+              <span className="h-7 rounded-lg bg-white/[0.08]" />
+              <span className="h-7 rounded-lg bg-white/[0.08]" />
+              <span className="h-7 rounded-lg bg-white/[0.08]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (service.kind === "web") {
+    return (
+      <div className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080806] p-4">
+        <div className="screen-scan rounded-2xl border border-white/10 bg-[#10100D]">
+          <div className="flex gap-1.5 border-b border-white/10 px-4 py-3">
+            <span className="h-2 w-2 rounded-full bg-[#F06A3D]" />
+            <span className="h-2 w-2 rounded-full bg-[#D7B46A]" />
+            <span className="h-2 w-2 rounded-full bg-[#60E6D2]" />
+          </div>
+          <div className="p-4">
+            <div className="sheen-surface h-16 rounded-xl" />
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              <span className="h-12 rounded-lg bg-white/[0.07]" />
+              <span className="h-12 rounded-lg bg-white/[0.07]" />
+              <span className="h-12 rounded-lg bg-white/[0.07]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (service.kind === "ai") {
+    return (
+      <div className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080806] p-4">
+        <div className="grid gap-3">
+          {["Classify request", "Draft response", "Route owner"].map((item, index) => (
+            <div key={item} className="motion-progress grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl bg-white/[0.045] px-3 py-3">
+              <span className="grid h-8 w-8 place-items-center rounded-lg text-xs font-black text-black" style={{ backgroundColor: index === 1 ? service.accent : `${service.accent}99` }}>
+                {index + 1}
+              </span>
+              <span className="text-xs font-bold text-white/64">{item}</span>
+              <span className="live-pulse h-2 w-2 rounded-full" style={{ backgroundColor: service.accent }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (service.kind === "commerce") {
+    return (
+      <div className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080806] p-4">
+        <div className="grid h-full grid-cols-[0.62fr_0.38fr] gap-3">
+          <div className="rounded-2xl bg-[#15100C] p-3">
+          <div className="sheen-surface h-20 rounded-xl" />
+            <div className="mt-3 h-2 w-2/3 rounded-full bg-white/38" />
+            <div className="mt-2 h-2 w-1/2 rounded-full bg-white/14" />
+          </div>
+          <div className="grid gap-2">
+            <span className="rounded-xl bg-white/[0.07]" />
+            <span className="rounded-xl bg-white/[0.07]" />
+            <span className="rounded-xl bg-white/[0.07]" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (service.kind === "automation") {
+    return (
+      <div className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080806] p-4">
+        <div className="absolute left-[22%] right-[22%] top-1/2 h-px bg-white/12" />
+        <div className="relative grid h-full grid-cols-3 items-center gap-3">
+          {["CRM", "AI", "Team"].map((item, index) => (
+            <div key={item} className="animate-float-small rounded-2xl border border-white/[0.08] bg-white/[0.045] p-3 text-center" style={{ animationDelay: `${index * 0.28}s` }}>
+              <span className="mx-auto mb-4 block h-9 w-9 rounded-xl" style={{ backgroundColor: index === 1 ? service.accent : `${service.accent}2a` }} />
+              <p className="text-[10px] font-black uppercase tracking-[0.12em] text-white/54">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="relative min-h-[460px] overflow-hidden rounded-xl bg-[#0D0C0A] p-7 shadow-[0_34px_110px_rgba(0,0,0,0.38)] md:min-h-[520px] md:p-9">
-      <div
-        className="absolute inset-0 opacity-80 services-glow"
-        style={{ background: `radial-gradient(circle at 54% 45%, ${current.glow}, transparent 18rem)` }}
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:52px_52px] opacity-35" />
-
-      <div className="relative z-10 flex h-full min-h-[400px] flex-col justify-between md:min-h-[448px]">
-        <div className="flex items-start justify-between">
-          <p className="text-[11px] font-black uppercase tracking-[0.24em] text-white/34">Business map</p>
-          <p className="text-[11px] font-black uppercase tracking-[0.24em]" style={{ color: current.color }}>
-            {current.move}
-          </p>
+    <div className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080806] p-4">
+      <div className="grid h-full grid-cols-[0.45fr_0.55fr] gap-3">
+        <div className="grid gap-2">
+          <span className="rounded-xl bg-white/[0.07]" />
+          <span className="rounded-xl bg-white/[0.07]" />
+          <span className="rounded-xl bg-white/[0.07]" />
         </div>
-
-        <div className="relative mx-auto my-8 h-56 w-full max-w-[520px] md:h-64">
-          <svg viewBox="0 0 280 250" className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
-            {capabilities.map((item, index) => (
-              <motion.path
-                key={index === active ? `active-${item.title}` : item.title}
-                d={item.path}
-                fill="none"
-                stroke={index === active ? item.color : "rgba(255,255,255,0.13)"}
-                strokeWidth={index === active ? 4 : 1.6}
-                strokeLinecap="round"
-                initial={index === active ? { pathLength: 0, opacity: 0 } : false}
-                animate={{
-                  pathLength: 1,
-                  opacity: index === active ? 1 : 0.42,
-                }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
-              />
-            ))}
-          </svg>
-
-          <motion.div
-            animate={shouldReduceMotion ? undefined : { scale: [1, 1.04, 1] }}
-            transition={shouldReduceMotion ? undefined : { duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#080706] text-center shadow-[0_24px_80px_rgba(0,0,0,0.52),inset_0_0_0_1px_rgba(255,255,255,0.12)]"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.18em] text-white/34">IbdaDev</span>
-            <span className="text-lg font-black uppercase leading-none" style={{ color: current.color }}>
-              {current.result}
-            </span>
-          </motion.div>
-
-          {capabilities.map((item, index) => {
-            const positions = [
-              "left-0 top-[26%]",
-              "right-0 top-[30%]",
-              "left-[8%] bottom-[2%]",
-              "right-[10%] bottom-[4%]",
-            ];
-            return (
-              <span
-                key={item.title}
-                className={`absolute ${positions[index]} grid h-16 w-16 place-items-center rounded-full bg-black/42 text-[10px] font-black uppercase tracking-[0.12em] text-white/54 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] transition-colors md:h-20 md:w-20`}
-                style={{
-                  color: index === active ? item.color : undefined,
-                  boxShadow: index === active ? `0 0 46px ${item.glow}, inset 0 1px 0 rgba(255,255,255,0.12)` : undefined,
-                }}
-                aria-hidden="true"
-              >
-                {item.title}
-              </span>
-            );
-          })}
-        </div>
-
-        <div>
-          <div className="flex items-end justify-between gap-4">
-            <motion.h3
-              key={current.title}
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.28 }}
-              className="text-5xl font-black uppercase leading-none tracking-normal md:text-7xl"
-            >
-              {current.title}
-            </motion.h3>
-            <span className="text-8xl font-black leading-none text-white/[0.055] md:text-9xl">{current.mark}</span>
-          </div>
-          <motion.p
-            key={`desc-${current.title}`}
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.28 }}
-            className="mt-3 text-sm font-medium leading-relaxed text-white/54"
-          >
-            {current.description}
-          </motion.p>
-          <motion.p
-            key={`outcome-${current.title}`}
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.28, delay: 0.08 }}
-            className="mt-2 text-xs font-black uppercase tracking-[0.14em]"
-            style={{ color: current.color }}
-          >
-            {current.outcome}
-          </motion.p>
+        <div className="flex items-end gap-2 rounded-2xl bg-white/[0.045] p-4">
+          {[42, 72, 55, 92].map((height, index) => (
+            <span key={height} className="flex-1 origin-bottom animate-float-small rounded-t-lg" style={{ height: `${height}%`, backgroundColor: index === 3 ? service.accent : `${service.accent}66`, animationDelay: `${index * 0.18}s` }} />
+          ))}
         </div>
       </div>
     </div>
@@ -175,65 +172,73 @@ const SignalMap = ({ active }: { active: number }) => {
 };
 
 export const ServicesGrid = () => {
-  const [active, setActive] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section id="services" className="relative overflow-hidden bg-ibda-bg px-6 py-24 md:py-32">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
+    <section id="services" className="relative overflow-hidden bg-[#070706] px-6 py-20 md:py-28">
+      <div className="brand-texture opacity-[0.38]" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-11 grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-end"
+        >
           <div>
-            <p className="mb-5 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">What we build</p>
-            <h2 className="max-w-4xl text-5xl font-black leading-[0.9] tracking-normal md:text-7xl lg:text-8xl">
-              Four services. One system.
+            <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
+              What we build
+            </p>
+            <h2 className="max-w-3xl font-display text-4xl font-black leading-[0.92] text-white md:text-6xl">
+              Complete digital solutions, not random pieces.
             </h2>
           </div>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-3 rounded-full border border-[#D7B46A]/40 px-6 py-3 text-sm font-bold text-[#D7B46A] transition-all duration-300 hover:border-[#D7B46A] hover:bg-[#D7B46A]/10"
-          >
-            Scope a build →
-          </a>
-        </div>
+          <p className="max-w-xl text-base font-semibold leading-relaxed text-white/52 lg:justify-self-end">
+            We design and build the mobile apps, web platforms, AI systems, and operations tools a business needs to sell, serve, and scale.
+          </p>
+        </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.72fr_0.98fr] lg:items-stretch">
-          <div className="grid gap-0 divide-y divide-white/[0.08]">
-            {capabilities.map((item, index) => {
-              const isActive = active === index;
-              return (
-                <motion.button
-                  key={item.title}
-                  type="button"
-                  onMouseEnter={() => setActive(index)}
-                  onFocus={() => setActive(index)}
-                  onClick={() => setActive(index)}
-                  initial={{ opacity: 0, x: -18 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.38, delay: index * 0.06 }}
-                  className={`group grid w-full grid-cols-[3rem_1fr_auto] items-center gap-4 border-l-2 py-7 pl-3 text-left outline-none transition-all duration-300 md:grid-cols-[4rem_1fr_auto] md:py-8 ${isActive ? "border-current" : "border-transparent"}`}
-                  style={{ color: isActive ? item.color : undefined }}
-                >
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-white/26">{item.mark}</span>
-                  <span
-                    className="text-4xl font-black uppercase leading-none tracking-normal transition-all duration-300 group-hover:translate-x-1 md:text-6xl"
-                    style={{ color: isActive ? item.color : "rgba(255,255,255,0.72)" }}
-                  >
-                    {item.title}
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service, index) => (
+            <motion.article
+              key={service.title}
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 38,
+                      x: index % 3 === 0 ? -24 : index % 3 === 2 ? 24 : 0,
+                      scale: 0.96,
+                    }
+              }
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, x: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.01 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.62, delay: index * 0.055, ease: [0.16, 1, 0.3, 1] }}
+              className="brand-card group overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-[#0D0C0A] p-4 transition-colors duration-300 hover:border-white/16 hover:bg-[#11100D] md:p-5"
+            >
+              <MiniSurface service={service} />
+              <div className="mt-5 flex items-start justify-between gap-5">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: service.accent }}>
+                    {service.number}
                   </span>
-                  <span
-                    className="text-xs font-black uppercase tracking-[0.18em] transition-colors"
-                    style={{ color: isActive ? item.color : "rgba(255,255,255,0.24)" }}
-                  >
-                    {item.move}
-                  </span>
-                </motion.button>
-              );
-            })}
-          </div>
-
-          <SignalMap active={active} />
+                  <h3 className="mt-2 font-display text-3xl font-black leading-none text-white md:text-4xl">
+                    {service.title}
+                  </h3>
+                </div>
+                <span className="pt-2 text-xl text-white/24 transition-transform group-hover:translate-x-1" aria-hidden="true">
+                  →
+                </span>
+              </div>
+              <p className="mt-4 max-w-lg text-sm font-semibold leading-relaxed text-white/54">
+                {service.line}
+              </p>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

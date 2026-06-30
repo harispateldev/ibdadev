@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { BRAND } from "@/constants/brand";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 // Three columns matching how a client actually navigates their decision:
@@ -32,24 +34,31 @@ export const FooterSection = () => {
     <footer className="relative overflow-hidden border-t border-white/[0.06] bg-ibda-bg">
       {/* Warm top accent — echoes the gold thread running through the site */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ibda-gold/16 to-transparent" />
+      <div className="brand-texture opacity-[0.45]" aria-hidden="true" />
 
       <div className="container mx-auto px-6 pb-10 pt-16 md:pb-12 md:pt-20">
+        <div className="mb-10 flex flex-col items-center gap-5 text-center">
+          <BrandLogo showTagline className="justify-center" />
+          <p className="max-w-xl text-sm font-semibold leading-relaxed text-white/42">
+            {BRAND.siteLine}
+          </p>
+        </div>
 
-        {/* ── IBDADEV watermark ── */}
+        {/* ── Ibda Dev watermark ── */}
         {/* Reduced from 15vw to ~10vw with a hard cap — supports composition, doesn't dominate */}
         <div className="select-none text-center" aria-hidden="true">
           <p
             className="cursor-default font-black leading-none tracking-tighter text-white/[0.055] transition-colors duration-500 hover:text-white/[0.09]"
             style={{ fontSize: "clamp(72px, 10vw, 144px)" }}
           >
-            IBDADEV
+            IBDA DEV
           </p>
         </div>
 
         {/* ── Closing statement ── */}
         {/* Brand identity in its quietest form — not a pitch, a statement of fact */}
         <p className="mt-5 text-center text-[0.8125rem] font-semibold tracking-wide text-white/38">
-          Systems built to ship.&nbsp; Handoffs built to last.
+          {BRAND.footerLine}
         </p>
 
         {/* ── Navigation ── */}
@@ -115,11 +124,11 @@ export const FooterSection = () => {
         {/* ── Bottom bar ── */}
         <div className="mt-10 flex flex-col gap-2 border-t border-white/[0.05] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] text-white/24">
-            © {new Date().getFullYear()} IbdaDev. All rights reserved.
+            © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>
           {/* Self-referential — the agency runs its own process on its own site */}
           <p className="text-[11px] text-white/16">
-            Built by IbdaDev
+            Built by {BRAND.name}
           </p>
         </div>
       </div>

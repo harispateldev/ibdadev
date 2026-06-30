@@ -21,7 +21,8 @@ const config = {
         }
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+        display: ["var(--font-display)", "sans-serif"],
       },
     },
   },

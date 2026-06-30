@@ -1,156 +1,69 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const outcomes = [
-  { stat: "3×", label: "Inbound leads after launch" },
-  { stat: "4.2s", label: "Avg. page load time reduced to" },
-  { stat: "100%", label: "On-time, on-budget delivery" },
-];
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export const TestimonialSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
-
-    const ctx = gsap.context(() => {
-      gsap.from(".testi-intro", {
-        opacity: 0,
-        y: 24,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 76%",
-        },
-      });
-
-      gsap.from(".testi-card", {
-        opacity: 0,
-        y: 28,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".testi-card",
-          start: "top 82%",
-        },
-      });
-
-      gsap.from(".testi-outcome", {
-        opacity: 0,
-        y: 14,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".testi-outcomes",
-          start: "top 88%",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-[#050505] px-6 py-24 md:py-32"
-    >
-      {/* Top border gradient */}
+    <section className="relative overflow-hidden bg-[#080706] px-6 py-20 md:py-28">
+      <div className="brand-texture opacity-[0.26]" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      {/* Atmospheric glow */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 30%, rgba(215,180,106,0.014) 0%, transparent 50%)",
-        }}
-      />
-
-      <div className="container relative z-10 mx-auto max-w-5xl">
-
-        {/* Section intro — frames the social proof */}
-        <div className="testi-intro mb-12 text-center">
-          <span className="mb-4 block text-xs font-black uppercase tracking-[0.26em] text-[#D7B46A]">
-            Client proof
-          </span>
-          <h2 className="mx-auto max-w-2xl text-3xl font-black leading-[1.0] tracking-normal text-white md:text-5xl">
-            Real clients. Real outcomes.
-          </h2>
-        </div>
-
-        {/* Testimonial card — editorial, centered focal point */}
-        <div
-          className="testi-card relative overflow-hidden rounded-xl border border-white/[0.08] p-8 md:p-10"
-          style={{
-            boxShadow: "0 0 50px -16px rgba(215,180,106,0.10), 0 0 80px -28px rgba(215,180,106,0.05)",
-            background: "radial-gradient(ellipse at 50% -20%, rgba(215,180,106,0.05) 0%, rgba(255,255,255,0.026) 50%, rgba(5,5,5,0.6) 100%)",
-          }}
+      <div className="container relative z-10 mx-auto max-w-6xl">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 30, scale: 0.97 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
+          className="brand-card grid overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#0D0C0A] lg:grid-cols-[0.64fr_0.36fr]"
         >
-          {/* Gold accent line */}
-          <div
-            className="absolute inset-x-0 top-0 h-[2px]"
-            style={{
-              background: "linear-gradient(90deg, transparent 10%, rgba(215,180,106,0.45) 50%, transparent 90%)",
-            }}
-          />
-
-          {/* Quote mark */}
-          <div className="mb-5 text-[#D7B46A]/30 select-none" aria-hidden="true">
-            <svg width="32" height="24" viewBox="0 0 32 24" fill="currentColor">
-              <path d="M0 18.4C0 11.2 3.2 5.6 9.6 1.6L12.8 5.6C9.6 8 7.2 10.4 7.2 13.6H12.8V24H0V18.4ZM18.4 18.4C18.4 11.2 21.6 5.6 28 1.6L31.2 5.6C28 8 25.6 10.4 25.6 13.6H31.2V24H18.4V18.4Z" />
-            </svg>
-          </div>
-
-          {/* Quote — sharp, scannable */}
-          <blockquote className="max-w-3xl text-2xl font-black leading-[1.15] tracking-normal text-white md:text-3xl">
-            IbdaDev turned our vision into a digital presence that felt sharper,
-            faster, and genuinely easier to trust.
-          </blockquote>
-
-          {/* Author + company */}
-          <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.06] pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-base font-black text-white">Shaun Olson</p>
-              <p className="mt-0.5 text-sm font-bold text-white/45">
-                Founder · Cobe Construction Inc.
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, x: -24 }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.55, delay: 0.12 }}
+            className="p-7 md:p-10"
+          >
+            <p className="mb-7 text-xs font-black uppercase tracking-[0.24em] text-ibda-gold">
+              Client proof
+            </p>
+            <blockquote className="font-display text-3xl font-black leading-[1.05] text-white md:text-5xl">
+              “Ibda Dev turned scattered business ideas into one clear digital system customers and teams could actually use.”
+            </blockquote>
+            <div className="mt-8 border-t border-white/[0.08] pt-6">
+              <p className="text-base font-black text-white">Founder</p>
+              <p className="mt-1 text-sm font-semibold text-white/42">
+                Service business client
               </p>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="rounded-sm border border-[#D7B46A]/20 bg-[#D7B46A]/[0.06] px-3 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-[#D7B46A]/70">
-                Web + Brand System
-              </span>
-            </div>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Outcome stats — proves business impact, not just satisfaction */}
-        <div className="testi-outcomes mt-5 grid gap-4 sm:grid-cols-3">
-          {outcomes.map((item) => (
-            <div
-              key={item.stat}
-              className="testi-outcome rounded-xl border border-white/[0.06] px-5 py-4 transition-colors duration-500 hover:border-white/[0.10]"
-              style={{
-                background: "radial-gradient(ellipse at 50% 100%, rgba(215,180,106,0.02) 0%, rgba(8,8,8,1) 65%)",
-              }}
-            >
-              <p className="text-2xl font-black text-[#D7B46A]">{item.stat}</p>
-              <p className="mt-0.5 text-xs font-bold text-white/50">{item.label}</p>
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, x: 24 }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.55, delay: 0.18 }}
+            className="border-t border-white/[0.08] bg-[#050505] p-7 lg:border-l lg:border-t-0 md:p-10"
+          >
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-white/32">
+              Result snapshot
+            </p>
+            <div className="mt-7 grid gap-4">
+              {[
+                ["Customer surface", "Mobile and web flows feel simple"],
+                ["Business engine", "AI and automation reduce repeated work"],
+                ["Team handoff", "Docs and access ready at launch"],
+              ].map(([title, line]) => (
+                <div key={title} className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4">
+                  <p className="text-sm font-black text-[#D7B46A]">{title}</p>
+                  <p className="mt-2 text-sm font-semibold leading-relaxed text-white/48">{line}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
