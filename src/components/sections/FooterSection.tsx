@@ -96,7 +96,7 @@ export const FooterSection = () => {
             <ul className="flex flex-col gap-2.5">
               <li>
                 <a
-                  href="/work#start-project"
+                  href="/contact"
                   className="text-sm text-white/46 transition-colors duration-200 hover:text-white/78"
                 >
                   Start a project

@@ -76,7 +76,7 @@ export const NavBar = () => {
       <div className="flex flex-1 justify-end pointer-events-auto">
         <MagneticWrapper>
           <Link
-            href="/work#start-project"
+            href="/contact"
             className="rounded-full border border-[#D7B46A]/30 bg-[#D7B46A]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.08em] text-[#D7B46A] transition-all duration-300 hover:bg-[#D7B46A] hover:text-[#050505] active:scale-95 sm:px-7 sm:text-sm"
           >
             <span className="sm:hidden">Start</span>

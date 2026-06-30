@@ -162,6 +162,32 @@ export default function AboutPage() {
             </div>
           </section>
         </ScrollReveal>
+
+        <ScrollReveal distance={54} className="mt-16 md:mt-20">
+          <div className="flex flex-col gap-7 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(215,180,106,0.16),rgba(96,230,210,0.08)_45%,rgba(142,124,255,0.12))] p-7 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.10)] md:flex-row md:items-center md:justify-between md:p-8">
+            <div>
+              <p className="text-2xl font-black text-white">Start with the problem. Leave with a first release.</p>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/42">
+                Tell us what is slowing the business down. We will shape the build path.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/contact"
+                className="inline-flex items-center rounded-full bg-[#D7B46A] px-6 py-3.5 text-sm font-black text-ibda-bg shadow-[0_18px_45px_rgba(215,180,106,0.24)] transition-transform hover:-translate-y-0.5"
+              >
+                Start the Conversation
+              </a>
+              <a
+                href="/work"
+                className="inline-flex items-center rounded-full bg-[#60E6D2]/14 px-6 py-3.5 text-sm font-black text-[#60E6D2] shadow-[inset_0_0_0_1px_rgba(96,230,210,0.20)] transition-transform hover:-translate-y-0.5"
+              >
+                See Work
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </main>
   );
