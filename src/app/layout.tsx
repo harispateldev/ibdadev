@@ -19,7 +19,7 @@ const manrope = Manrope({
   variable: "--font-body",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibdadev.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://imaginative-dusk-2641f4.netlify.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

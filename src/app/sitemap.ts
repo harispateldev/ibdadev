@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibdadev.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://imaginative-dusk-2641f4.netlify.app";
 
   return [
     {
