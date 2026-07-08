@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { MagneticWrapper } from "./MagneticWrapper";
 import { BRAND } from "@/constants/brand";
+import { BrandMark } from "./BrandLogo";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -38,15 +39,20 @@ export const NavBar = () => {
           href="/"
           aria-label="Ibda Dev home"
           className={cn(
-            "pointer-events-auto inline-flex w-fit flex-col transition-all duration-500 active:scale-95",
+            "pointer-events-auto inline-flex w-fit items-center gap-3 transition-all duration-500 active:scale-95",
             scrolled ? "scale-95 opacity-92" : "scale-100"
           )}
         >
-          <span className="font-display text-sm font-black uppercase leading-none tracking-[0.28em] text-white sm:text-base">
-            {BRAND.name}
+          <span className="grid h-10 w-9 shrink-0 place-items-center drop-shadow-[0_18px_34px_rgba(0,0,0,0.45)]">
+            <BrandMark priority />
           </span>
-          <span className="mt-1 hidden text-[8px] font-black uppercase leading-none tracking-[0.26em] text-[#D7B46A]/72 sm:block">
-            {BRAND.tagline}
+          <span className="flex flex-col">
+            <span className="font-display text-sm font-black uppercase leading-none tracking-[0.28em] text-white sm:text-base">
+              {BRAND.name}
+            </span>
+            <span className="mt-1 hidden text-[8px] font-black uppercase leading-none tracking-[0.26em] text-[#D7B46A]/72 sm:block">
+              {BRAND.tagline}
+            </span>
           </span>
         </Link>
 
