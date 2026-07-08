@@ -4,7 +4,7 @@ import { Resend } from "resend";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => ({}));
-    const { name, email, projectType, budget, message, honeypot } = body;
+    const { name, email, company, website, projectType, stage, budget, message, honeypot } = body;
 
     // 1. Anti-Spam Honeypot Check
     if (honeypot) {
@@ -12,9 +12,9 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. Server-side Validation
-    if (!name || !email || !message) {
+    if (!name || !email || !company || !message) {
       return NextResponse.json(
-        { success: false, error: "Name, email, and project details are required." },
+        { success: false, error: "Name, email, company, and project details are required." },
         { status: 400 }
       );
     }
@@ -34,8 +34,11 @@ export async function POST(request: NextRequest) {
     console.log("New Contact Form Submission:", {
       name,
       email,
+      company,
+      website: website || "Not specified",
       projectType: projectType || "Not specified",
-      budget: budget || "Not specified",
+      stage: stage || "Not specified",
+      engagementLane: budget || "Not specified",
       message,
       timestamp: new Date().toISOString(),
     });
@@ -46,16 +49,19 @@ export async function POST(request: NextRequest) {
       const { data, error } = await resend.emails.send({
         from: "IbdaDev Inquiry <onboarding@resend.dev>",
         to: [recipientEmail],
-        subject: `🔥 New Project Inquiry: ${name} (${projectType || "General"})`,
+        subject: `New Ibda Dev Build Review: ${company} (${projectType || "General"})`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; background-color: #050508; color: #ffffff; border-radius: 10px;">
-            <h2 style="color: #D7B46A;">New Project Inquiry Received</h2>
+            <h2 style="color: #D7B46A;">New Build Review Request</h2>
             <hr style="border-color: #333;" />
-            <p><strong>Client Name:</strong> ${name}</p>
+            <p><strong>Name / Role:</strong> ${name}</p>
             <p><strong>Email Address:</strong> <a href="mailto:${email}" style="color: #60E6D2;">${email}</a></p>
-            <p><strong>Project Type:</strong> ${projectType || "Not specified"}</p>
-            <p><strong>Target Budget:</strong> ${budget || "Not specified"}</p>
-            <h3 style="color: #8E7CFF; margin-top: 20px;">Project Brief & Constraints:</h3>
+            <p><strong>Company / Brand:</strong> ${company}</p>
+            <p><strong>Website / Product:</strong> ${website || "Not specified"}</p>
+            <p><strong>Build Type:</strong> ${projectType || "Not specified"}</p>
+            <p><strong>Current Stage:</strong> ${stage || "Not specified"}</p>
+            <p><strong>Engagement Lane:</strong> ${budget || "Not specified"}</p>
+            <h3 style="color: #8E7CFF; margin-top: 20px;">Business Brief:</h3>
             <p style="background-color: #111; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${message}</p>
           </div>
         `,

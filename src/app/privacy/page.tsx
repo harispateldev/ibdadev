@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="mb-3 text-lg font-black text-white">1. Information We Collect</h2>
             <p>
-              When you submit a project inquiry via our contact form, we collect personal information including your name, email address, company details, target budget, and project requirements. We also use essential telemetry cookies to measure website traffic and performance.
+              When you submit a project inquiry via our contact form, we collect personal information including your name, email address, company details, engagement preference, and project requirements. We also use essential telemetry cookies to measure website traffic and performance.
             </p>
           </section>
 

@@ -186,7 +186,7 @@ export const PartnersMarquee = () => {
             We connect your website, CRM, and operations into one system — visitors become leads, leads become customers, ops run themselves.
           </p>
           <a
-            href="/contact"
+            href="/contact#project-intake"
             className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#D7B46A] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_14px_40px_rgba(215,180,106,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_55px_rgba(215,180,106,0.28)]"
           >
             Start building

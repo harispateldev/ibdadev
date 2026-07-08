@@ -40,3 +40,4 @@ next-env.d.ts
 # generated knowledge graph artifacts
 graphify-out/
 .graphify_*
+.env*

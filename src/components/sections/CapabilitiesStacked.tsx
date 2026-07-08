@@ -140,7 +140,7 @@ export const CapabilitiesStacked = () => {
                   {cap.outcome}
                 </p>
                 <a
-                  href="/contact"
+                  href="/contact#project-intake"
                   className="inline-flex items-center gap-3 rounded-full border px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] transition-all w-fit"
                   style={{ borderColor: `${cap.color}50`, color: cap.color }}
                 >

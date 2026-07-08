@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   keywords: ["Creative Development Agency", "AI Integration", "Next.js Agency", "Custom Web Applications", "React Three Fiber", "Web Systems", "Product Studio"],
   authors: [{ name: `${BRAND.name} Team`, url: siteUrl }],
   creator: BRAND.name,
+  icons: {
+    icon: BRAND.iconSrc,
+    apple: BRAND.iconSrc,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -68,7 +72,7 @@ export default function RootLayout({
     "@type": "ProfessionalService",
     "name": BRAND.name,
     "url": siteUrl,
-    "logo": `${siteUrl}/icon.png`,
+    "logo": `${siteUrl}${BRAND.iconSrc}`,
     "description": "Senior product studio for AI tools, apps, dashboards, automations, and web systems.",
     "sameAs": [
       "https://twitter.com/ibdadev",

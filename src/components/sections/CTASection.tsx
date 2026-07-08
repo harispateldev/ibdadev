@@ -53,7 +53,7 @@ export const CTASection = () => {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <MagneticWrapper>
               <a
-                href="/work#start-project"
+                href="/contact#project-intake"
                 className="sheen-surface inline-flex rounded-full px-9 py-4 text-sm font-black uppercase tracking-[0.1em] text-white/62 shadow-[0_20px_60px_rgba(215,180,106,0.24)] transition-all hover:text-white"
               >
                 Start a project

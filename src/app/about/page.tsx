@@ -174,7 +174,7 @@ export default function AboutPage() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="/contact"
+                href="/contact#project-intake"
                 className="inline-flex items-center rounded-full bg-[#D7B46A] px-6 py-3.5 text-sm font-black text-ibda-bg shadow-[0_18px_45px_rgba(215,180,106,0.24)] transition-transform hover:-translate-y-0.5"
               >
                 Start the Conversation
