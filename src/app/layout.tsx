@@ -8,6 +8,7 @@ import { FooterSection } from "@/components/sections/FooterSection";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { BRAND } from "@/constants/brand";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -96,6 +97,7 @@ export default function RootLayout({
           <FooterSection />
         </SmoothScroll>
         <CookieConsent />
+        <SpeedInsights />
       </body>
     </html>
   );
